@@ -39,7 +39,7 @@
                   :href="`/product/${offer.id}`"
                   class="ms-3"
                 >
-                  <img src="~/assets/images/det.jpg" />
+                  <img src="~/assets/images/details.png" />
                 </a>
               </div>
 
