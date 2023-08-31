@@ -1,0 +1,62 @@
+.payment-page {
+  .container {
+    max-width: 800px;
+    margin: 5% auto;
+    .group {
+      display: flex;
+      gap: 20px;
+      @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+      }
+    }
+    .input-group {
+      display: flex;
+      gap: 5px;
+      width: 100%;
+      input {
+        padding: 7px 20px 7px 7px;
+        border: 2px solid #ededed;
+        outline: none;
+        border-radius: 5px;
+        width: 100%;
+        &::placeholder {
+          color: white;
+        }
+      }
+    }
+    .select-month,
+    .select-year {
+      width: 100%;
+      padding: 7px 20px 7px 7px;
+      border: 2px solid #ededed;
+      outline: none;
+      border-radius: 5px;
+    }
+    .total-amount {
+      display: flex;
+      justify-content: space-between;
+      border-radius: 5px;
+      padding: 10px;
+      align-items: center;
+      border: 1px solid $primary;
+      .title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px !important;
+        color: $primary;
+      }
+      .price {
+        font-weight: bold;
+        color: $primary;
+      }
+    }
+    .confirm {
+      background-color: #d1a027;
+      padding: 10px;
+      border-radius: 3px;
+      font-weight: 600;
+      color: white;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.header {
+  background-color: white;
+  padding: 5px 50px 5px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .brand {
+    max-width: 55px;
+    img {
+      width: 100%;
+    }
+  }
+  .icons {
+    display: flex;
+    gap: 15px;
+    i {
+      font-size: 30px;
+      color: $primary;
+    }
+    .count {
+      display: flex;
+      .number {
+        background: $third;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        position: absolute;
+        z-index: 99;
+        font-size: 13px;
+      }
+    }
+  }
+}

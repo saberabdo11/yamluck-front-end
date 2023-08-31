@@ -1,0 +1,153 @@
+.product-page {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  min-height: 100vh;
+  .heading {
+    width: 100%;
+    font-size: 15px;
+    span {
+      text-align: left;
+      display: block;
+      color: #707070;
+    }
+  }
+  .product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 3%;
+    .preview {
+      flex: 1.5;
+      height: 450px;
+      width: 450px;
+      max-width: 100%;
+      @media screen and (max-width: 768px) {
+        flex: auto;
+        height: 100%;
+      }
+      .swiper {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        .swiper-pagination-bullet-active {
+          background-color: #928dab !important;
+        }
+      }
+    }
+    .product-info {
+      flex: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      @media screen and (max-width: 768px) {
+        flex: auto;
+      }
+      .title {
+        font-weight: 700;
+        span {
+          font-size: 19px;
+          color: $fourth;
+        }
+      }
+      .details {
+        p {
+          color: #707070;
+          font-size: 15px;
+          line-height: 1.9em;
+        }
+      }
+      .cards {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        @media screen and(max-width:768px) {
+          justify-content: center;
+        }
+        .card {
+          box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.16);
+          padding: 15px;
+          text-align: center;
+          width: 130px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          justify-content: space-between;
+          .icon {
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .title {
+            color: #707070;
+            font-weight: 400;
+            font-size: 15px !important;
+            line-height: 1.4;
+            font-family: "Cairo" !important;
+          }
+          .amount {
+            color: $fourth;
+            font-weight: bold;
+          }
+        }
+      }
+      .conditions {
+        color: $fourth;
+        display: flex;
+        flex-direction: column;
+        p {
+          color: #707070;
+        }
+      }
+      .subscribe-btn {
+        width: auto;
+        background-color: $fourth;
+        padding: 8px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        outline: none;
+        @media screen and(max-width:768px) {
+          width: 200px;
+        }
+      }
+    }
+  }
+  .similar-products {
+    margin-top: 5%;
+    h3 {
+      color: $fourth;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 2%;
+      .card {
+        text-align: center;
+        color: black;
+        .image {
+          max-width: 200px;
+          height: 250px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        .title {
+          color: #444035;
+        }
+        .price {
+          color: #707070;
+        }
+      }
+    }
+  }
+}

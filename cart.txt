@@ -1,0 +1,55 @@
+<template>
+  <div>
+    <DashboardHeader></DashboardHeader>
+
+    <section class="products mt-5 position-relative">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-12 col-lg-3 text-center mt-3"
+            v-for="offer in carts"
+            :key="offer.id"
+          >
+            <div class="product-body p-4" style="border-radius: 15px">
+              <div class="image-product px-4">
+                <img
+                  :src="`${storageURL}/products/product_id_${offer.product.id}/${offer.product.pic_one}`"
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+              <div class="product-title">
+                <h3>
+                  {{ offer.product[`title_${locale}`] }}
+                </h3>
+                <h3>{{ offer.product.price }} SAR</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      storageURL: process.env.VUE_APP_STORAGE_URL,
+      locale: this.$i18n.locale,
+      carts: [],
+    };
+  },
+  async fetch() {
+    this.carts = await this.$axios.$post(
+      "https://backend.yamluck.com/api/carts",
+      {
+        user: this.$auth.user.id,
+      }
+    );
+  },
+};
+</script>

@@ -1,0 +1,16 @@
+.about-page {
+  .text {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h4 {
+      color: $primary;
+    }
+    p {
+      color: #444035;
+      font-size: 14px;
+      line-height: 1.9em;
+    }
+  }
+}

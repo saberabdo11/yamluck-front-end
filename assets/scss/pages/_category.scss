@@ -1,0 +1,239 @@
+.category-page {
+  background-color: #f0f8f8;
+  .latest-offers {
+    padding: 15px;
+    h2 {
+      text-align: center;
+    }
+    .sub-categories {
+      .categories {
+        display: flex;
+        gap: 7px;
+        .card {
+          background: white;
+          padding: 7px 30px;
+          border-radius: 5px;
+          box-shadow: 0px 0px 5px 5px #f1f1f1;
+          &.active {
+            background-color: $fourth !important;
+            color: white;
+          }
+        }
+      }
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      gap: 50px;
+      max-width: 1200px;
+      margin: 5% auto;
+      .card-parent {
+        direction: rtl;
+        .card {
+          border: 1px solid #525252;
+          border-radius: 8px;
+          padding: 10px;
+          width: 100%;
+          .container {
+            background: white;
+            box-shadow: 0px 0px 8px 0px #0000000d;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box;
+            .profile-pic {
+              width: 85px;
+              height: 85px;
+              position: absolute;
+              top: -55px;
+              right: -37px;
+              border: 1px solid #a3a3a3;
+              border-radius: 50%;
+              padding: 4px;
+              @media screen and (max-width: 768px) {
+                top: -35px;
+                right: -35px;
+              }
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+              }
+            }
+            .om-title {
+              position: relative;
+              text-align: center;
+              color: $fourth;
+              font-weight: bold;
+            }
+            .yammluck-pic {
+              position: absolute;
+              clear: both;
+              z-index: 99;
+              left: 30px;
+              top: -40px;
+              @media screen and (max-width: 768px) {
+                left: 0;
+                top: -35px;
+                img {
+                  max-width: 47px !important;
+                }
+              }
+              img {
+                max-width: 40px;
+              }
+            }
+            .prod-title {
+              text-align: center;
+              @media screen and (max-width: 768px) {
+                margin-top: 16%;
+              }
+            }
+            .fav {
+              margin: 11px auto;
+              display: block;
+              img {
+                max-width: 30px;
+              }
+            }
+            .location {
+              color: green;
+              font-size: 14px;
+              text-align: left;
+              display: block;
+            }
+            .product-img {
+              width: 100%;
+              height: 250px;
+              object-fit: contain;
+              margin-top: 5px;
+            }
+            .primary-product {
+              display: flex;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 10px;
+              .product-info {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                flex: 1;
+                .get-it {
+                  background: orange;
+                  padding: 3px;
+                  border-radius: 3px;
+                  display: block;
+                  font-size: 15px;
+                }
+                .note {
+                  color: green;
+                  font-size: 14px;
+                }
+              }
+              .image {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid black;
+                border-radius: 5px;
+                width: 125px;
+                max-width: 125px;
+                height: 125px;
+                align-items: center;
+                flex: 1;
+                img {
+                  width: 100%;
+                  height: 75%;
+                  object-fit: contain;
+                }
+              }
+            }
+            .progress-bar {
+              margin-top: 3%;
+              display: flex;
+              align-items: center;
+              .start {
+                position: absolute;
+                // color: white;
+              }
+              .end {
+                position: absolute;
+                // transform: translate(-285px, 0px);
+              }
+              progress {
+                display: flex;
+              }
+              progress[value] {
+                width: 100%;
+                border: none;
+                border-radius: 0.125em;
+                background: #b6b2b1;
+                height: 22px;
+              }
+              progress[value]::-webkit-progress-bar {
+                width: 100%;
+                border: none;
+                border-radius: 0.125em;
+                background: #b6b2b1;
+                height: 22px;
+              }
+              progress[value]::-webkit-progress-value {
+                border: none;
+                border-radius: inherit;
+                background: #8c3beb;
+              }
+              progress[value]::-moz-progress-bar {
+                border: none;
+                border-radius: inherit;
+                background: #8c3beb;
+              }
+              progress[value]::-ms-fill {
+                border: none;
+                border-radius: inherit;
+                background: #8c3beb;
+              }
+              progress:before {
+                content: attr(value);
+                position: absolute;
+                color: white;
+              }
+              progress::after {
+                content: attr(max);
+                position: relative;
+                // right: 85%;
+                // bottom: 23px;
+              }
+            }
+          }
+        }
+        .similar-offers {
+          text-align: left;
+          width: 100%;
+          display: inline-block;
+          font-weight: bold;
+          color: #dd0000;
+          .count {
+            color: black;
+          }
+        }
+      }
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      background: #2f2f2c;
+      padding: 11px;
+      text-align: center;
+      color: white;
+      border-radius: 3px;
+      display: inline-flex;
+    }
+  }
+  .v-pagination__item--active {
+    background-color: #d1a126 !important;
+    border-color: #d1a126 !important;
+  }
+}

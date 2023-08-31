@@ -1,0 +1,65 @@
+.favs {
+  width: 900px;
+  margin: 4% auto;
+  max-width: 100%;
+  min-height: 50vh;
+  .page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      color: $fourth;
+    }
+  }
+  .cards {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 500px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $fourth;
+      border-radius: 10px;
+    }
+    .cardd {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgb(236, 236, 236);
+      padding: 10px;
+      justify-content: space-between;
+      @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+      }
+      .icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .subject {
+        font-weight: bold;
+        font-size: 17px;
+        color: $fourth;
+      }
+      .content {
+        font-size: 14px;
+        color: #383838;
+      }
+    }
+  }
+}

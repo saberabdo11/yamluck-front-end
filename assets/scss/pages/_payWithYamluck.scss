@@ -1,0 +1,82 @@
+.pay-with-yamluck-page {
+  .container {
+    max-width: 800px;
+    margin: 5% auto;
+
+    a {
+      color: inherit;
+    }
+    .product-card {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      @media screen and (max-width: 768px) {
+        justify-content: center;
+        text-align: center;
+        .subs {
+          margin: 0 auto;
+        }
+      }
+      .image {
+        width: 150px;
+        height: 150px;
+        border: 1px solid rgb(241, 241, 241);
+        border-radius: 3px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .info {
+        background-color: transparent !important;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .subs {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(223, 223, 223);
+      border-radius: 2px;
+      padding: 3px 5px 3px 5px;
+      align-items: center;
+      .title {
+        font-weight: 500;
+        font-size: 15px !important;
+      }
+    }
+    .total-amount {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(223, 223, 223);
+      border-radius: 2px;
+      padding: 3px 5px 3px 5px;
+      align-items: center;
+      .title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px !important;
+      }
+      .price {
+        font-weight: bold;
+      }
+    }
+    .confirm {
+      background-color: #d1a027;
+      padding: 10px;
+      border-radius: 3px;
+      font-weight: 600;
+      color: white;
+      width: 100%;
+      margin-top: 5%;
+    }
+  }
+}

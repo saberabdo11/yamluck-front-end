@@ -1,0 +1,124 @@
+#register-page {
+  min-height: 100vh;
+  background: url("/pics/background.jpg") no-repeat center center;
+  background-size: cover;
+  .container {
+    .side {
+      padding: 20px;
+      max-width: 500px;
+      background: #b2ad9a;
+      border-radius: 10px;
+      margin: 5% auto 5% 5%;
+      h3 {
+        color: #ffe297;
+        margin: 3%;
+      }
+      .form {
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+      .group {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        label {
+          color: $primary;
+          font-weight: 600;
+        }
+        input {
+          padding: 10px 20px 10px 10px;
+          border: 2px solid #ededed;
+          outline: none;
+          border-radius: 5px;
+          &::placeholder {
+            color: white;
+          }
+        }
+        select {
+          padding: 10px 20px 10px 10px;
+          border: 2px solid #ededed;
+          outline: none;
+          border-radius: 5px;
+        }
+      }
+      .checkbox-group {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        label {
+          color: white;
+          a {
+            color: white;
+            text-decoration: underline;
+          }
+        }
+      }
+      .register-btn {
+        background-color: #d1a027;
+        padding: 10px;
+        border-radius: 3px;
+        font-weight: 600;
+        color: white;
+        width: 100%;
+      }
+    }
+
+    .dont-have-account {
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 2%;
+      display: block;
+      color: $third;
+      a {
+        color: #ffe297;
+      }
+    }
+    .social {
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+      .facebook {
+        width: 100%;
+        background: #3b5999;
+        padding: 9px;
+        border-radius: 5px;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        font-weight: 600;
+      }
+      .mdi-facebook {
+        color: white;
+        font-size: 25px;
+      }
+      .google {
+        width: 100%;
+        background: white;
+        padding: 9px;
+        border-radius: 5px;
+        color: #db3236;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        font-weight: 600;
+      }
+      .mdi-google {
+        color: #db3236;
+        font-size: 22px;
+      }
+    }
+  }
+}
