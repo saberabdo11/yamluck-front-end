@@ -1,13 +1,15 @@
 <template>
-  <section class="home-section d-flex align-items-center py-4">
+  <section class="home-section d-flex align-items-center">
     <div class="container">
-      <div class="d-flex align-items-center justify-content-between flex-wrap">
-        <div class="col-12 col-lg-6 p-0">
+      <div
+        class="d-flex align-items-center justify-content-between flex-wrap py-4"
+      >
+        <div class="col-12 col-lg-6 ">
           <!-- <img src="../assets/images/s1.png" alt="" class="img-fluid" /> -->
           <ImageSlide></ImageSlide>
         </div>
 
-        <div class="col-12 col-lg-6 p-0 text-center mt-0">
+        <div class="col-12 col-lg-6 text-center mt-0">
           <img src="~/assets/images/bg.png" class="img-home" />
           <!-- <div class="ms-lg-5 p-lg-5">
             <div :class="['ms-lg-5 p-lg-5', { 'text-end': locale == 'ar' }]">
