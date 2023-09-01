@@ -29,6 +29,25 @@ body {
   color: #fff !important;
 }
 
+.home-section {
+  background: var(--main-color);
+  border-bottom: 5px solid var(--yellow-color);
+  height: 50vh;
+}
+
+@media screen and (max-width: 767px) {
+  .home-section {
+    background: var(--main-color);
+    border-bottom: 5px solid var(--yellow-color);
+    height: 60vh;
+    justify-content: center;
+  }
+
+  .center {
+    text-align: center;
+  }
+}
+
 .home {
   background: url("images/الواجهة-الرأيسية.jpg") no-repeat center;
   background-position: center;

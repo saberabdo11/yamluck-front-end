@@ -4,15 +4,18 @@
       <div
         v-for="(slide, index) in slides"
         :key="index"
-        :class="['image-wrapper', { 'single-slide': slides.length === 1 }]"
+        :class="[
+          'image-wrapper text-center',
+          { 'single-slide': slides.length === 1 },
+        ]"
       >
         <img
           :src="`https://backend.yamluck.com/public/storage/Sliders/${slide.image}`"
         />
-        <div class="content text-center mt-4">
+        <!-- <div class="content text-center mt-4">
           <h3 class="text-uppercase fw-bold">{{ slide.title }}</h3>
           <p class="fw-bold fs-5">{{ slide.subtitle }}</p>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -32,7 +35,7 @@ export default {
     const fetchedSlides = await this.$axios.$get(
       "https://backend.yamluck.com/api/sliders"
     );
-    this.slides = fetchedSlides.slice(0, 3);
+    this.slides = fetchedSlides.slice(0, 1);
   },
   methods: {
     startSlideShow() {
@@ -52,6 +55,7 @@ export default {
 </script>
 
 <style>
+/*
 .slides-image {
   position: relative;
   display: flex;
@@ -100,38 +104,28 @@ export default {
   border: 10px solid #fff;
   object-fit: fill;
   object-position: center;
-}
+} */
 
 .image-wrapper.single-slide {
-  left: -50%;
-  transform: translateX(50%);
+  /* left: -50%; */
+  /* transform: translateX(50%); */
   /* top: -15px; */
-  top: -50%;
-  transform: translateX(50%);
+  /* top: -50%; */
+  /* transform: translateX(50%); */
 }
 
 .single-slide img {
-  width: 450px;
-  height: 450px;
+  width: 550px;
+  height: 550px;
   object-fit: scale-down;
   object-position: center;
   border: none;
 }
 
 @media screen and (max-width: 767px) {
-  .image-wrapper {
-    top: -200px;
-  }
-
-  .image-wrapper.single-slide {
-    top: 60px;
-    left: -15px;
-    transform: translateX(0);
-  }
-
   .single-slide img {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
   }
 }
 

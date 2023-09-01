@@ -1,13 +1,15 @@
 <template>
-  <section class="home d-flex align-items-center">
+  <section class="home-section d-flex align-items-center">
     <div class="container">
-      <div class="row d-flex align-items-center">
-        <div class="col-12 col-lg-6">
+      <div class="d-flex align-items-center justify-content-between flex-wrap">
+        <div class="col-12 col-lg-6 p-0">
           <!-- <img src="../assets/images/s1.png" alt="" class="img-fluid" /> -->
           <ImageSlide></ImageSlide>
         </div>
-        <div class="col-12 col-lg-6 home-col">
-          <div class="ms-lg-5 p-lg-5">
+
+        <div class="col-12 col-lg-6 p-0 text-center mt-0">
+          <img src="~/assets/images/bg.png" class="img-home" />
+          <!-- <div class="ms-lg-5 p-lg-5">
             <div :class="['ms-lg-5 p-lg-5', { 'text-end': locale == 'ar' }]">
               <h5 class="home__text ms-lg-5" style="font-size: 13px">
                 {{ details[`title_${locale}`] }}
@@ -18,14 +20,14 @@
               <h2 class="fw-bold ms-lg-5" style="font-size: 20px">
                 {{ details[`desc_${locale}`] }}
               </h2>
-              <!-- <button
+              <button
                 href="#menu"
                 class="btn main-btn mt-4 rounded-pill ms-lg-5"
               >
                 GET IN TOUCH
-              </button> -->
+              </button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -50,9 +52,7 @@ export default {
 };
 </script>
 <style>
-@media screen and (max-width: 767px) {
-  .home-col {
-    margin-top: 16rem;
-  }
+.img-home {
+  width: 70%;
 }
 </style>
