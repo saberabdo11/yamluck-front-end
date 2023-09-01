@@ -53,6 +53,6 @@ export default {
 </script>
 <style>
 .img-home {
-  width: 70%;
+  width: 67%;
 }
 </style>
