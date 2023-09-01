@@ -127,7 +127,7 @@
                     <span class="ms-2">{{ offer.max_subs }}</span>
                   </div>
                   <p
-                    :class="['mt-2 px-2', { 'text-end': locale == 'ar' }]"
+                    :class="['mt-2 px-2 w-100', { 'text-end': locale == 'ar' }]"
                     style="font-size: 14px"
                   >
                     {{ offer[`details_${locale}`] }}
