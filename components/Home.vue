@@ -4,7 +4,7 @@
       <div
         class="d-flex align-items-center justify-content-between flex-wrap py-4"
       >
-        <div class="col-12 col-lg-6 text-center">
+        <div class="col-12 col-lg-6 text-center mt-3 mt-lg-0">
           <img src="~/assets/images/bg.png" class="img-home" />
         </div>
 
