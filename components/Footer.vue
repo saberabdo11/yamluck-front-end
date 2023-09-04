@@ -67,9 +67,13 @@
                     </a>
                   </li>
                   <li class="mt-2">
-                    <a href="#" class="text-white-50" style="font-size: 14px">
+                    <NuxtLink
+                      to="/join-us"
+                      class="text-white-50"
+                      style="font-size: 14px"
+                    >
                       {{ $t("join-us") }}
-                    </a>
+                    </NuxtLink>
                   </li>
                   <li class="mt-2">
                     <a href="#" class="text-white-50" style="font-size: 14px">
