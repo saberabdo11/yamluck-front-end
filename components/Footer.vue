@@ -68,7 +68,7 @@
                   </li>
                   <li class="mt-2">
                     <a href="#" class="text-white-50" style="font-size: 14px">
-                      {{ $t("customers-support") }}
+                      {{ $t("join-us") }}
                     </a>
                   </li>
                   <li class="mt-2">

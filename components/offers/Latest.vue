@@ -90,6 +90,7 @@
                         error.target.style.display = 'none';
                       }
                     "
+                    v-if="ios === false"
                   />
                 </picture>
               </div>
@@ -220,6 +221,7 @@ export default {
 
   data() {
     return {
+      ios: false,
       offers: [],
       favs: [],
       limitedOffers: [],
@@ -348,6 +350,11 @@ export default {
     },
   },
   mounted() {
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.includes("ios")) {
+      this.ios = true;
+    }
     // Get a reference to the scroll container element
     this.scrollContainer = this.$refs.scrollBar;
 
