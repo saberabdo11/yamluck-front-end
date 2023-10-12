@@ -1,19 +1,19 @@
+@import url('https://fonts.cdnfonts.com/css/montserrat');
+*{
+  font-family: 'Montserrat', sans-serif !important;
+}
 #login-page {
   min-height: 100vh;
   background: url("/pics/background.jpg") no-repeat center center;
   background-size: cover;
+
   .container {
     .side {
       padding: 20px;
-      max-width: 500px;
       background: #b2ad9a;
-      border-radius: 10px;
       margin: 5% auto 5% 5%;
-      h3 {
-        color: #ffe297;
-        margin: 3%;
-      }
-
+      z-index: 99999999999;
+      position: relative;
       .form {
         form {
           display: flex;
@@ -21,35 +21,47 @@
           gap: 20px;
         }
       }
+
       .input-group {
         display: flex;
         flex-direction: column;
         gap: 10px;
+
         label {
-          color: $primary;
-          font-weight: 600;
+          color: gray;
+          font-size: 14px;
+          margin-bottom: -6px;
+          margin-left: 2px;
+          font-weight: 400;
         }
+
         input {
-          padding: 10px 20px 10px 10px;
+          background: white;
+          padding: 8px 20px 8px 10px;
           border: 2px solid #ededed;
           outline: none;
           border-radius: 5px;
+
           &::placeholder {
-            color: white;
+            color: gray;
+            font-size: 12px;
           }
         }
       }
+
       .checkbox-group {
         display: flex;
         gap: 10px;
         align-items: center;
       }
+
       a {
-        color: white;
+        color: gray;
         font-size: 15px;
       }
+
       .login-btn {
-        background-color: $primary;
+        background-color: #F2AC4B;
         padding: 10px;
         border-radius: 3px;
         font-weight: 600;
@@ -64,15 +76,18 @@
       margin-top: 2%;
       display: block;
       color: #444035;
+
       a {
         color: $primary;
       }
     }
+
     .or-login-with {
-      margin-top: 10%;
+      margin-top: 4%;
       display: flex;
       flex-direction: column;
       gap: 8px;
+
       .line {
         width: 100%;
         text-align: center;
@@ -81,45 +96,50 @@
         margin: 10px 0 20px;
         color: #343f56;
         font-weight: 600;
+
         span {
           background: #fff;
           padding: 0 10px;
         }
       }
+
       .social {
         display: flex;
         gap: 15px;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center !important;
+
         .facebook {
-          width: 100%;
+          width: auto;
           background: #3b5999;
-          padding: 9px;
-          border-radius: 5px;
-          color: white;
+          padding: 6px;
+          border-radius: 50%;
           display: flex;
           align-items: center;
           gap: 10px;
           justify-content: center;
           font-weight: 600;
         }
+
         .mdi-facebook {
           color: white;
           font-size: 25px;
         }
+
         .google {
-          width: 100%;
-          background: white;
-          padding: 9px;
-          border-radius: 5px;
-          color: #db3236;
+          width: auto;
+          padding: 6px;
+          border-radius: 50%;
+          background: #db3236;
           display: flex;
           align-items: center;
           gap: 10px;
           justify-content: center;
           font-weight: 600;
         }
+
         .mdi-google {
-          color: #db3236;
+          color: white;
           font-size: 22px;
         }
       }
