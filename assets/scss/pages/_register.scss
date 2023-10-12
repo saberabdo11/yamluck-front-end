@@ -1,70 +1,83 @@
 #register-page {
   min-height: 100vh;
-  background: url("/pics/background.jpg") no-repeat center center;
-  background-size: cover;
+
   .container {
     .side {
       padding: 20px;
-      max-width: 500px;
       background: #b2ad9a;
-      border-radius: 10px;
       margin: 5% auto 5% 5%;
-      h3 {
-        color: #ffe297;
-        margin: 3%;
-      }
+      z-index: 99999999999;
+      position: relative;
+
       .form {
         form {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 10px;
         }
       }
+
       .group {
         display: flex;
         gap: 10px;
         width: 100%;
         flex-wrap: wrap;
       }
+
       .input-group {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        width: 100%;
+
         label {
-          color: $primary;
-          font-weight: 600;
+          color: gray;
+          font-size: 14px;
+          margin-bottom: -6px;
+          margin-left: 2px;
+          font-weight: 400;
         }
+
         input {
-          padding: 10px 20px 10px 10px;
+          background: white;
+          padding: 8px 20px 8px 36px;
           border: 2px solid #ededed;
           outline: none;
           border-radius: 5px;
+          font-size: 12px;
+
           &::placeholder {
-            color: white;
+            color: gray;
+            font-size: 12px;
           }
         }
+
         select {
-          padding: 10px 20px 10px 10px;
+          padding: 10px 20px 10px 30px;
           border: 2px solid #ededed;
           outline: none;
           border-radius: 5px;
         }
       }
+
       .checkbox-group {
         display: flex;
         gap: 10px;
         align-items: center;
+
         label {
-          color: white;
+          font-size: 13px;
+          font-weight: 500;
+          color: gray;
+
           a {
-            color: white;
+            color: #F2AC4B;
             text-decoration: underline;
           }
         }
       }
+
       .register-btn {
-        background-color: #d1a027;
+        background-color: #F2AC4B;
         padding: 10px;
         border-radius: 3px;
         font-weight: 600;
@@ -78,45 +91,50 @@
       font-weight: 500;
       margin-top: 2%;
       display: block;
-      color: $third;
+      color: #444035;
+
       a {
-        color: #ffe297;
+        color: $primary;
       }
     }
+
     .social {
       display: flex;
       gap: 15px;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: center !important;
+
       .facebook {
-        width: 100%;
+        width: auto;
         background: #3b5999;
-        padding: 9px;
-        border-radius: 5px;
-        color: white;
+        padding: 6px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         gap: 10px;
         justify-content: center;
         font-weight: 600;
       }
+
       .mdi-facebook {
         color: white;
         font-size: 25px;
       }
+
       .google {
-        width: 100%;
-        background: white;
-        padding: 9px;
-        border-radius: 5px;
-        color: #db3236;
+        width: auto;
+        padding: 6px;
+        border-radius: 50%;
+        background: #db3236;
         display: flex;
         align-items: center;
         gap: 10px;
         justify-content: center;
         font-weight: 600;
       }
+
       .mdi-google {
-        color: #db3236;
+        color: white;
         font-size: 22px;
       }
     }
