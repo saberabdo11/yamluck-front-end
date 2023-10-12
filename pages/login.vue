@@ -2,8 +2,9 @@
   <v-app :class="$i18n.locale">
     <div id="login-page">
       <div class="container">
-        <div style="width: 26%; height: 39%; opacity: 0.30; border-radius: 9999px; border: 100px #F2AC4B solid; position: absolute; top: 20px;"></div>
-        <div class="side col-9 mx-auto row p-0">
+        <div
+          style="width: 26%; height: 39%; opacity: 0.30; border-radius: 9999px; border: 100px #F2AC4B solid; position: absolute; top: 20px;"></div>
+        <div class="side col-sm-9 mx-auto row p-0">
 
           <!-----LEFT DIV----->
           <div class="col-sm-6 col-12 leftPanelLogin pt-5">
@@ -85,7 +86,8 @@
             <div style="top: -99px;position: relative;text-align: center">
               <img src="../assets/images/gift.png" style="width: 300px;"/>
             </div>
-            <div style="width: 29%; height: 50%; opacity: 0.30; border-radius: 9999px; border: 100px #F2AC4B solid; bottom: -128px; position: absolute; right: -146px;"></div>
+            <div
+              style="width: 29%; height: 50%; opacity: 0.30; border-radius: 9999px; border: 100px #F2AC4B solid; bottom: -128px; position: absolute; right: -146px;"></div>
           </div>
         </div>
       </div>
@@ -247,5 +249,12 @@ export default {
   word-wrap: break-word;
   margin-top: 19px;
   font-weight: 500;
+}
+
+
+@media screen and (max-width: 768px) {
+  .loginForm {
+    margin: 26px 20px 0px 18px;
+  }
 }
 </style>
