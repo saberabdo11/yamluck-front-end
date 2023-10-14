@@ -213,13 +213,8 @@ export default {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #ef762c;
+  background: #FEC631;
   border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #a94a0d;
 }
 
 #login-page .container .side {

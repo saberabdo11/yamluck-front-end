@@ -75,9 +75,13 @@ body {
 }
 
 .offer-body {
-  background-color: var(--main-color);
-  border-radius: 12px;
-  /* width: 80%; */
+  border-radius: 13px;
+  background: white;
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+  border: 1px solid rgb(45 45 45 / 14%);
+  overflow: hidden;
+  z-index: 9999999999;
+  position: relative;
 }
 
 .user-name {
@@ -96,7 +100,6 @@ body {
   width: 350px;
   height: 70px;
   object-fit: fill;
-  object-position: center;
   border-radius: 7px;
 }
 
@@ -116,12 +119,8 @@ body {
 
 .offer-image img,
 .offer-image video {
-  width: 80%;
-  height: 250px;
-  border: 2px solid var(--yellow-color);
-  border-radius: 12px;
-  object-fit: scale-down;
-  object-position: center;
+  width: 149px;
+  height: auto;
 }
 
 /* @media screen and (max-width: 767px) {
@@ -130,19 +129,11 @@ body {
   }
 } */
 
-.offer-links {
-  background: var(--sec-color);
-  border-radius: 12px;
-}
-
 .related-product-img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 259px;
   object-fit: cover;
   object-position: center;
-  border: 2px solid var(--yellow-color);
-  transform: translateY(-10%);
-  border-radius: 12px;
 }
 
 @media screen and (max-width: 767px) {
@@ -232,11 +223,9 @@ body {
 
 .product-image {
   width: 100%;
-  height: 220px;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
-  margin-bottom: 0.5rem !important;
-  border: 2px solid var(--yellow-color);
+  object-position: top;
 }
 
 .product-title span {
@@ -282,6 +271,7 @@ body {
 .menu__name {
   background: var(--main-color);
 }
+
 .winners {
   background-color: var(--main-color);
 }
@@ -293,6 +283,7 @@ body {
 .winners-scrollabar {
   overflow-x: scroll;
 }
+
 .winners-scrollabar::-webkit-scrollbar {
   display: none;
 }

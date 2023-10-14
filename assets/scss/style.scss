@@ -1,7 +1,27 @@
-$primary: #fdce40;
-$second: #707070;
+$primary: #ffc122;
+$second: #FF7162;
 $third: #444035;
 $fourth: #d1a126;
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #efe8e8;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FEC631;
+  border-radius: 10px;
+}
+
+
 @font-face {
   font-family: "Questv1";
   font-weight: bold;
@@ -22,6 +42,7 @@ html,
 body {
   // direction: rtl;
   background: white;
+  background: #F3F6F9;
 }
 #app {
   background-color: white;

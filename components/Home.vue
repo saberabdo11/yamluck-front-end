@@ -1,15 +1,8 @@
 <template>
   <section class="home-section d-flex align-items-center">
     <div class="container">
-      <div
-        class="d-flex align-items-center justify-content-between flex-wrap py-4"
-      >
-        <div class="col-12 col-lg-6 text-center mt-5 mt-lg-0">
-          <img src="~/assets/images/bg.png" class="img-home" />
-        </div>
-
+      <div class="d-flex align-items-center justify-content-between flex-wrap py-4">
         <div class="col-12 col-lg-6">
-          <!-- <img src="../assets/images/s1.png" alt="" class="img-fluid" /> -->
           <ImageSlide></ImageSlide>
         </div>
       </div>

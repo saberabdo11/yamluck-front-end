@@ -387,7 +387,7 @@ export default {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #ef762c;
+  background: #FEC631;
   border-radius: 10px;
 }
 
