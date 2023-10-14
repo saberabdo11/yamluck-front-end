@@ -20,7 +20,7 @@
 
           <a target="_blank" style="height: 100%;width: 100%;">
             <div class="text-center realDivImg">
-              <img style="width: 100%;height: 100%;margin: 0 !important;"
+              <img style="width: 100%;height: 100%;margin: 0 !important;object-fit: cover"
                    src="../../assets/images/slider1.png"
                    class="d-block rounded mx-3 text-center img-setting"
               />
