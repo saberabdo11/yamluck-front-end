@@ -1,15 +1,21 @@
 <template>
   <section>
+    <div v-show="isloaded" class="main fadeIn">
+      <TopHeader/>
+      <DashboardHeader/>
+      <HomeSetting/>
+      <Latest/>
+      <Offers/>
+      <Gifts/>
+      <Sold/>
+      <Winners class="d-none"/>
+      <Footer/>
+    </div>
 
-    <TopHeader/>
-    <DashboardHeader/>
-    <HomeSetting/>
-    <Latest/>
-    <Offers/>
-    <Gifts/>
-    <Sold/>
-    <Winners class="d-none" />
-    <Footer/>
+    <center class="loaderHam" v-show="!isloaded">
+      <img src="../assets/images/newLogo.png">
+      <h2 class="mt-3 font-weight-bold">{{ $t("Loading") }}</h2>
+    </center>
 
   </section>
 </template>
@@ -43,6 +49,74 @@ export default {
     Sold,
   },
   data() {
+    return {
+      isloaded: false,
+    }
   },
+  mounted() {
+    this.isloaded = false
+    setTimeout(() => {
+      this.isloaded = true;
+    }, 3000);
+  }
 };
 </script>
+<style>
+.loaderHam {
+  height: 100vh;
+  position: relative;
+  padding-top: 31%;
+  animation-name: hamzLoader;
+  animation-duration: 5s;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.70;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hamzLoader {
+  10% {
+    transform: scale(0.8);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  30% {
+    transform: scale(0.8);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.8);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  90% {
+    transform: scale(0.8);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+}
+</style>

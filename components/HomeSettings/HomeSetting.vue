@@ -24,16 +24,13 @@
                    src="../../assets/images/slider1.png"
                    class="d-block rounded mx-3 text-center img-setting"
               />
-              <div class="textOnSlider">
+              <div
+                :class="locale == 'en' ? 'textOnSlider' : 'textOnSlider_ar'">
                 <h3>
-                  <span class="pone">Best Choice </span><br>
-                  <span class="pone">Make Your</span><br>
-                  <span class="pone">Life</span> <span class="ptwo">Special</span><br>
+                  <span class="pone">{{$t("Best Choice")}}<br> <span :class="locale == 'en' ? 'd-block' : 'd-none'">{{$t("Make Your")}} <br></span> {{$t("Life")}} </span>
+                  <span class="ptwo">{{$t("Special")}}</span>
                 </h3>
-                <p class="pthree">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores dolorem ea eos, expedita
-                  explicabo illum iste neque placeat qui reprehenderit similique sint vero. Asperiores cupiditate
-                  excepturi magni placeat voluptates.
-                </p>
+                <p class="pthree">{{$t("SOMELOREM")}}</p>
               </div>
             </div>
           </a>
@@ -114,6 +111,19 @@ export default {
   top: 98px;
 }
 
+.textOnSlider_ar {
+  position: absolute;
+  z-index: 99999999999999999;
+  display: block;
+  color: black;
+  left: 0;
+  text-align: left;
+  width: 50%;
+  left: 368px;
+  top: 98px;
+  text-align: right;
+}
+
 .pone {
   color: #FEC631;
   font-size: 42px;
@@ -155,11 +165,11 @@ export default {
 }
 
 @media screen and (max-width: 650px) {
-  .textOnSlider{
-    width: 80%;
-  }
-
   .textOnSlider {
+    width: 70%;
+    left: 70px;
+  }
+  .textOnSlider_ar {
     width: 70%;
     left: 70px;
   }

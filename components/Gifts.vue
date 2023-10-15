@@ -18,7 +18,7 @@
       <div class="row m-0 mx-auto GiftsContainer">
         <h3 class="ourGifts">
           <span class="bullet"></span>
-          Our Gifts
+          {{ $t('ourGifts') }}
           <span class="bullet" style="position: absolute !important;right: 3px !important;"></span>
           <span class="bullet" style="position: absolute !important; right: 276px !important; bottom: 218px; background: #87ebff;"></span>
           <span class="bullet" style="position: absolute !important; left: 225px !important; bottom: 318px; background: #a173f4;"></span>

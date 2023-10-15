@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div :class="this.$i18n.locale == 'en' ? 'header' : 'header_ar'">
 
     <div class="pull-left d-sm-flex d-none">
       <span class="leftInfoDetails border-0">
@@ -33,10 +33,10 @@
 
       <!---PROFILE---->
       <NuxtLink class="langBtn" to="/profile" v-if="this.$auth.loggedIn">
-        <v-icon>mdi-account</v-icon>
+        <v-icon style="color: #FEC631;">mdi-account</v-icon>
       </NuxtLink>
       <NuxtLink class="langBtn" to="/login" v-else>
-        <v-icon>mdi-account</v-icon>
+        <v-icon style="color: #FEC631;">mdi-account</v-icon>
       </NuxtLink>
 
       <!---LANGUAGE---->
@@ -86,7 +86,21 @@ export default {
   z-index: 999999999;
   position: relative;
 }
-
+.header_ar {
+  padding: 5px 9px 5px 12px !important;
+  background: rgb(37, 59, 112);
+  height: 48px;
+  z-index: 999999999;
+  position: relative;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header_ar .icons {
+  display: flex;
+  gap: 15px;
+}
 .topHeaderLinks {
   color: white;
   font-weight: 600 !important;

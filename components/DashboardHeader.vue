@@ -35,7 +35,7 @@
             <NuxtLink class="navItem" to="/gift">{{ $t("gifts") }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="navItem" to="/gift">{{ $t("finished Rooms") }}</NuxtLink>
+            <NuxtLink class="navItem" to="/gift">{{ $t("rooms") }}</NuxtLink>
           </li>
         </ul>
 
@@ -226,6 +226,7 @@ export default {
 
 <style scoped>
 .navbar {
+  min-height: 70px;
   background: grey;
   border-bottom: 1px solid #2d2d2d2d;
   box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
@@ -250,7 +251,7 @@ export default {
 
 .navItem {
   color: #2B3C6B !important;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 600 !important;
   word-wrap: break-word;
   letter-spacing: 1.5px;
@@ -268,7 +269,6 @@ export default {
 .nuxt-link-exact-active {
   color: #FF7162 !important;
   border-bottom: 2px solid #FF7162;
-  font-weight: 700 !important;
 }
 
 ul.navbar-nav {

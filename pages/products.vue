@@ -147,12 +147,18 @@ export default {
       "https://backend.yamluck.com/api/products"
     );
     this.offers = response;
-    this.carts = await this.$axios.$post(
-      "https://backend.yamluck.com/api/carts",
-      {
-        user: this.$auth.user.id,
-      }
-    );
+
+
+    //--get carts--//
+    if (this.$auth.loggedIn) {
+      this.carts = await this.$axios.$post(
+        "https://backend.yamluck.com/api/carts",
+        {
+          user: this.$auth.user.id,
+        }
+      );
+    }else this.carts = [];
+
   },
   methods: {
     addFavs(id) {

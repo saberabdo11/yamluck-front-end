@@ -7,8 +7,8 @@
       <div>
         <!----HEADING---->
         <div class="text-center mb-5">
-          <span class="smarterway">Rooms That You <br> Have Already</span>
-          <span class="anythingtext">Join</span>
+          <span class="smarterway">{{ $t('roomsthatyou') }} <br> {{ $t('havealready') }}</span>
+          <span class="anythingtext">{{ $t('Join') }}</span>
         </div>
 
         <div class="row mx-auto">
@@ -60,7 +60,7 @@
                 <!--ITEM DETAILS-->
                 <div class="related-product-info" style="width: 100%">
                   <!--title-->
-                  <h6 class="itemTitle">{{ offer[`title_${locale}`] }}</h6>
+                  <h6 :class="['itemTitle', { 'text-right': locale == 'ar' }]">{{ offer[`title_${locale}`] }}</h6>
                   <!--desc-->
                   <p
                     :class="['mt-2 w-100', { 'text-end': locale == 'ar' }]"
@@ -71,14 +71,15 @@
                   </p>
                   <!--price-->
                   <div
-                    class="progress-offer mt-2 d-flex ms-2 align-items-center">
-                    <span class="ms-2 itemPrice">SAR {{ offer.price }}</span>
+                    :class="['progress-offer mt-2 d-flex ms-2 align-items-center',{'pullRight': locale == 'ar'}]">
+                    <span class="ms-2 itemPrice">{{ $t("SAR") }}</span>
+                    <span class="ms-2 itemPrice">{{ offer.price }}</span>
                   </div>
 
                   <!--totla items-->
                   <div
-                    class="progress-offer mt-2 d-flex ms-2 align-items-center pb-4">
-                    <span class="ms-2 itemNumbs">Total Nums:</span>
+                    :class="['progress-offer mt-2 d-flex ms-2 align-items-center pb-4',{'pullRight': locale == 'ar'}]">
+                    <span class="ms-2 itemNumbs">{{ $t("Total_Nums") }}:</span>
                     <span class="ms-2 itemNumbs">{{ offer.max_subs }}</span>
                   </div>
 
@@ -137,12 +138,15 @@ export default {
     );
     this.products = response;
 
-    this.carts = await this.$axios.$post(
-      "https://backend.yamluck.com/api/carts",
-      {
-        user: this.$auth.user.id,
-      }
-    );
+    //--get carts--//
+    if (this.$auth.loggedIn) {
+      this.carts = await this.$axios.$post(
+        "https://backend.yamluck.com/api/carts",
+        {
+          user: this.$auth.user.id,
+        }
+      );
+    } else this.carts = [];
   },
   methods: {
     addCarts(id) {
@@ -222,48 +226,14 @@ export default {
     stopAutoScroll() {
       clearInterval(this.scrollInterval);
     },
-
-    scrollNext() {
-      this.scrollIndex++;
-      if (this.scrollIndex >= this.products.length) {
-        this.scrollIndex = 0; // Loop back to the beginning
-        this.scrollContainer.scrollLeft = 0;
-      } else {
-        this.scrollContainer.scrollLeft =
-          this.scrollContainer.clientWidth * this.scrollIndex;
-      }
-    },
-
     handleMouseEnter() {
       this.stopAutoScroll();
     },
 
     handleMouseLeave() {
       this.startAutoScroll();
-    },
+    }
 
-    scrollNext() {
-      this.scrollIndex++;
-      if (this.scrollIndex >= this.products.length) {
-        this.scrollIndex = 0; // Loop back to the beginning
-        this.scrollContainer.scrollLeft = 0;
-      } else {
-        this.scrollContainer.scrollLeft =
-          this.scrollContainer.clientWidth * this.scrollIndex;
-      }
-    },
-
-    scrollPrev() {
-      this.scrollIndex--;
-      if (this.scrollIndex < 0) {
-        this.scrollIndex = this.products.length - 1; // Loop to the end
-        this.scrollContainer.scrollLeft =
-          this.scrollContainer.clientWidth * this.products.length;
-      } else {
-        this.scrollContainer.scrollLeft =
-          this.scrollContainer.clientWidth * this.scrollIndex;
-      }
-    },
   },
 
   mounted() {
@@ -340,6 +310,15 @@ export default {
 .rightBarAction a svg, .rightBarAction button svg {
   fill: white;
   height: 1.3em;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.pullRight {
+  justify-content: right !important;
+  padding-right: 21px !important;
 }
 
 @media screen and (max-width: 650px) {

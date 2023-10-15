@@ -6,8 +6,8 @@
     <div class="container mt-5">
       <!----HEADING---->
       <div class="text-center ">
-        <span class="smarterway">The Smarter way <br> to buy</span>
-        <span class="anythingtext">Anything</span>
+        <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t("Smartest") }} <br> {{ $t("Buyy") }}</span>
+        <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t("Anything") }}</span>
       </div>
       <div class="row mx-auto mt-5">
 
@@ -26,7 +26,7 @@
                 :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
               />
               <img
-                style="width: 177px; height: auto; margin-top: -88px; position: absolute; z-index: 2;"
+                :style="'width: 177px; height: auto; margin-top: -88px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 189px;' : '']"
                 :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                 @error="(error) => {error.target.style.display = 'none';}"
               />
@@ -96,7 +96,9 @@
               <!--ITEM DETAILS-->
               <div class="related-product-info" style="width: 100%">
                 <!--title-->
-                <h6 class="itemTitle">{{ offer[`title_${locale}`] }}</h6>
+                <h6 :class="['itemTitle', { 'text-right': locale == 'ar' }]">
+                  {{ offer[`title_${locale}`] }}
+                </h6>
                 <!--desc-->
                 <p
                   :class="['mt-2 w-100', { 'text-end': locale == 'ar' }]"
@@ -107,14 +109,15 @@
                 </p>
                 <!--price-->
                 <div
-                  class="progress-offer mt-2 d-flex ms-2 align-items-center">
-                  <span class="ms-2 itemPrice">SAR {{ offer.price }}</span>
+                  :class="['progress-offer mt-2 d-flex ms-2 align-items-center',{'pullRight': locale == 'ar'}]">
+                  <span class="ms-2 itemPrice">{{ $t("SAR") }}</span>
+                  <span class="ms-2 itemPrice">{{ offer.price }}</span>
                 </div>
 
                 <!--totla items-->
                 <div
-                  class="progress-offer mt-2 d-flex ms-2 align-items-center pb-4">
-                  <span class="ms-2 itemNumbs">Total Nums:</span>
+                  :class="['progress-offer mt-2 d-flex ms-2 align-items-center pb-4',{'pullRight': locale == 'ar'}]">
+                  <span class="ms-2 itemNumbs">{{ $t("Total_Nums") }}:</span>
                   <span class="ms-2 itemNumbs">{{ offer.max_subs }}</span>
                 </div>
 
@@ -285,6 +288,15 @@ export default {
 .rightBarAction a svg {
   fill: white;
   height: 1.3em;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.pullRight {
+  justify-content: right !important;
+  padding-right: 21px !important;
 }
 
 @media screen and (max-width: 650px) {

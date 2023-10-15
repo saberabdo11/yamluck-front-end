@@ -309,3 +309,19 @@ body {
   letter-spacing: 3.20px;
   word-wrap: break-word
 }
+
+.smarterway_ar {
+  color: #2B3C6B;
+  font-size: 39px;
+  font-weight: 600;
+  line-height: 44.61px;
+  word-wrap: break-word
+}
+
+.anythingtext_ar {
+  color: #FF7162;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 44.61px;
+  word-wrap: break-word
+}
