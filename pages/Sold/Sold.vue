@@ -304,13 +304,12 @@ export default {
   color: #2B3C6B;
   font-size: 26px;
   font-weight: 600;
-  font-weight: bolder;
   margin: 12px 23px;
 }
 
 .itemPrice, .itemNumbs {
   color: #F2AC4B;
-  font-weight: bolder;
+  font-weight: 600;
   font-size: 20px;
 }
 

@@ -14,7 +14,7 @@
             <div class="row m-3">
               <div
                 v-for="(offer, index) in offers" :key="offer.id"
-                class="col-md-4 col-sm-6 latest-col m-0 mb-1">
+                class="col-md-4 col-sm-6 latest-col m-0 mb-4">
 
                 <div class="offer-body">
                   <div class="latest-offer-info">
@@ -226,13 +226,12 @@ export default {
   color: #2B3C6B;
   font-size: 26px;
   font-weight: 600;
-  font-weight: bolder;
   margin: 12px 23px;
 }
 
 .itemPrice, .itemNumbs {
   color: #F2AC4B;
-  font-weight: bolder;
+  font-weight: 600;
   font-size: 20px;
 }
 

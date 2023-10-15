@@ -79,7 +79,7 @@ export default {
   color: #2B3C6B;
   font-size: 40px;
   text-align: center;
-  font-weight: bolder;
+  font-weight: 600;
 }
 
 .bullet {
