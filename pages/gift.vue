@@ -13,7 +13,7 @@
         </div>
         <div class="row mt-3">
           <div
-            class="col-md-3 col-sm-6 text-center"
+            class="col-md-3 col-sm-6 text-center mb-3"
             v-for="offer in offers"
             :key="offer.id">
             <a :href="`/product/${offer.id}`" class="text-white">
