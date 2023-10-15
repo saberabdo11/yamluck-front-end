@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TopHeader/>
     <DashboardHeader></DashboardHeader>
     <section class="latest-offers mt-5">
       <div class="text-center mb-5">

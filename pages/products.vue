@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TopHeader/>
     <DashboardHeader></DashboardHeader>
     <section class="products mt-5 position-relative">
       <div class="container">

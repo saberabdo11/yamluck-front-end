@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TopHeader/>
     <DashboardHeader></DashboardHeader>
 
     <div class="products p-4 position-relative">
