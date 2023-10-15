@@ -8,7 +8,7 @@
         <div class="m-3 product row p-0 w-100">
 
           <!----LEFT SECTION---->
-          <div class="col-sm-6 row justify-content-between">
+          <div class="col-md-6 row justify-content-between">
             <div class="col-3 p-1 pt-3 row flex-column justify-content-space-between">
               <span class="littleImgSpan" v-if="product.pic_two !== null">
                 <img :src="`${storageURL}/products/product_id_${param}/${product.pic_two}`"/>
@@ -55,7 +55,7 @@
           </div>
 
           <!----RIGHT SECTION--->
-          <div class="col-sm-6">
+          <div class="col-md-6">
             <div class="product-info">
               <div class="prodTitle">{{ product[`title_${locale}`] }}</div>
               <div class="prodDesc">{{ product[`details_${locale}`] }}</div>
@@ -71,7 +71,7 @@
 
               <div class="row mobileView d-flex" style="width: fit-content;">
                 <img src="../../../assets/images/newGiftIcon.png"
-                     style="position: absolute; width: 103px; right: 176px; margin-top: -29px;">
+                     :style="'position: absolute; width: 103px;margin-top: -29px;' + [locale == 'ar' ? 'left: 176px;' : 'right: 176px;']">
                 <div class="col-4">
                   <a href="/product/16" style="height: 110px; display: block;">
                     <img src="https://backend.yamluck.com/storage/products/product_id_17/1.jpg"
