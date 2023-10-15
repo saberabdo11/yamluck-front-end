@@ -12,10 +12,10 @@
       <div class="row mx-auto mt-5">
 
         <!----START ITEM---->
-        <div
-          v-for="(offer, index) in limitedOffers"
-          :class="['col-md-4 col-sm-6 latest-col mt-5 mb-3']"
-          :key="offer.id">
+        <a v-for="(offer, index) in limitedOffers"
+           :href="`/product/${offer.id}`"
+           class="col-md-4 col-sm-6 latest-col mt-5 mb-3"
+           :key="offer.id">
 
           <div class="offer-image text-left pt-5">
             <picture>
@@ -122,7 +122,7 @@
             </div>
           </div>
 
-        </div>
+        </a>
         <!----END ITEM------>
       </div>
 

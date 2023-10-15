@@ -13,6 +13,8 @@
         </div>
 
         <div class="cards" style="height: fit-content; margin-bottom: 19px;">
+
+          <!-----START TABLE----->
           <table class="text-center d-none d-sm-block">
             <thead>
             <tr class="border-bottom" style="height: 54px; color: gray;border-color:#2d2d2d2d !important;">
@@ -26,25 +28,24 @@
             <tbody>
             <tr v-for="(fav,index) in favs" :key="fav.id" class="border-bottom"
                 style="border-color:#2d2d2d2d !important;">
-              <td>{{ ++index }}</td>
-              <td style="width: 157px;">
+              <td style="width: 20%;">{{ ++index }}</td>
+              <td style="width: 20%;">
                 <NuxtLink :to="`/product/${fav.product.id}`">
                   <img class="favImg"
                        :src="`https://backend.yamluck.com/storage/products/product_id_${fav.product.id}/${fav.product.pic_one}`"/>
                 </NuxtLink>
               </td>
-              <td style="width: 177px;">
+              <td style="width: 20%;">
                 <NuxtLink :to="`/product/${fav.product.id}`">
                   <span style="color:#333333E5;font-weight: bold;font-size: 20px;">
                     {{ fav.product[`title_${locale}`] }}
                   </span>
                   <br>
-                  <span style="color:#333333;font-size: 18px;">{{ fav.product.price }} SAR</span> <br>
-                  <span style="color:#F2AC4B;font-weight: bold;font-size: 18px;">{{ fav.product.price }} Item</span>
+                  <span style="color:#F2AC4B;font-weight: bold;font-size: 18px;">{{ fav.product.max_subs }} Item</span>
                 </NuxtLink>
               </td>
-              <td style="color: #F2AC4B;font-weight: bold;font-size: 16px;">SAR 500</td>
-              <td>
+              <td style="width: 20%;color: #F2AC4B;font-weight: bold;font-size: 16px;">SAR {{ fav.product.price }}</td>
+              <td style="width: 20%;">
                 <button style="font-size: 12px; font-weight: bold;"
                         class="btn btn-danger rounded border text-white p-1 pr-3 pl-3"
                         @click.prevent="deleteFav(fav.product.id)">
@@ -54,6 +55,9 @@
             </tr>
             </tbody>
           </table>
+          <!-----START TABLE----->
+
+          <!-----MOBILE VIEW----->
           <div class="row mobileView d-flex d-sm-none" v-for="(fav,index) in favs" :key="fav.id">
             <div class="col-4">
               <NuxtLink :to="`/product/${fav.product.id}`">
@@ -68,7 +72,7 @@
                   </span>
                 <br>
                 <span style="color:#333333;font-size: 18px;">{{ fav.product.price }} SAR</span> <br>
-                <span style="color:#F2AC4B;font-weight: bold;font-size: 18px;">{{ fav.product.price }} Item</span>
+                <span style="color:#F2AC4B;font-weight: bold;font-size: 18px;">{{ fav.product.max_subs }} Item</span>
               </NuxtLink>
               <button style="font-size: 12px; font-weight: bold;"
                       class="btn btn-danger rounded border mobileViewBtn text-white p-1 pr-3 pl-3"
@@ -77,6 +81,8 @@
               </button>
             </div>
           </div>
+          <!-----MOBILE VIEW----->
+
         </div>
         <a class="btn btn-warning font-weight-bold text-white rounded border"
            style="background: #1DC3BF;width: fit-content;float: right;" href="#">Proceed To Checkout</a>

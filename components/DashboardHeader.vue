@@ -231,6 +231,8 @@ export default {
 <style>
 .navbar {
   background: grey;
+  border-bottom: 1px solid #2d2d2d2d;
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
 }
 
 .carts-count {

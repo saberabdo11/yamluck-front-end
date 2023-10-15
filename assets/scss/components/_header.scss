@@ -4,21 +4,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   .brand {
     max-width: 55px;
+
     img {
       width: 100%;
     }
   }
+
   .icons {
     display: flex;
     gap: 15px;
+
     i {
       font-size: 17px;
       color: $primary;
     }
+
     .count {
       display: flex;
+
       .number {
         background: $third;
         width: 15px;
