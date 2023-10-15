@@ -31,6 +31,11 @@ export default {
     };
   },
   mounted() {
+    if(window.location.hostname != "localhost")
+    if (location.protocol !== 'https:') {
+      location.replace(`https:${location.href.substring(location.protocol.length)}`);
+    }
+
     document.onreadystatechange = ()=>{
       if(document.readyState == "complete")
         setTimeout( () => {
