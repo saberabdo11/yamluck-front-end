@@ -117,7 +117,7 @@ export default {
 .pone {
   color: #FEC631;
   font-size: 42px;
-  font-weight: 700;
+  font-weight: 600;
   word-wrap: break-word;
   letter-spacing: 2px;
 }
@@ -125,7 +125,7 @@ export default {
 .ptwo {
   color: #FF7162;
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.96px;
   word-wrap: break-word;
   letter-spacing: 2px;

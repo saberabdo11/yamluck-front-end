@@ -131,7 +131,7 @@ export default {
 .favHeading {
   color: rgba(51, 51, 51, 0.90);
   font-size: 21px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 1.05px;
   word-wrap: break-word
 }

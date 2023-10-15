@@ -225,7 +225,7 @@ export default {
 .itemTitle {
   color: #2B3C6B;
   font-size: 26px;
-  font-weight: 800;
+  font-weight: 600;
   font-weight: bolder;
   margin: 12px 23px;
 }

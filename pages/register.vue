@@ -347,7 +347,7 @@ export default {
 .leftPanelRegister h3 {
   color: #FF7162;
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 1.80px;
   word-wrap: break-word;
   text-align: center;
@@ -435,7 +435,7 @@ export default {
   color: white;
   font-size: 28px;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 1.80px;
   word-wrap: break-word;
   margin-top: 20px;

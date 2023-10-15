@@ -533,7 +533,7 @@ table {
 .prodPrice {
   color: #FF7162;
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 600;
   margin-top: -15px;
 }
 
