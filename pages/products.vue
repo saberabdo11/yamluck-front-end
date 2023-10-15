@@ -11,7 +11,7 @@
         <div class="row">
           <!----START ITEMS---->
           <div class="mt-2">
-            <div class="row m-3">
+            <div class="row m-sm-3 m-0">
               <div
                 v-for="(offer, index) in offers" :key="offer.id"
                 class="col-md-4 col-sm-6 latest-col m-0 mb-4">

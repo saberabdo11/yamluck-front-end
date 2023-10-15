@@ -14,7 +14,7 @@
         <div class="row mx-auto">
           <div v-for="(offer, index) in products" :key="offer.id"
                v-if="index < 3"
-               class="col-md-4 col-sm-6">
+               class="col-md-4 col-sm-6 mb-3">
 
             <!----START ITEM---->
             <div class="offer-body">
