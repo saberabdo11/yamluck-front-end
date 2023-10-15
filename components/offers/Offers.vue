@@ -281,25 +281,7 @@ export default {
 };
 </script>
 
-<style>
-.smarterway {
-  color: #2B3C6B;
-  font-size: 39px;
-  font-weight: 800;
-  line-height: 44.61px;
-  letter-spacing: 3.20px;
-  word-wrap: break-word
-}
-
-.anythingtext {
-  color: #FF7162;
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 44.61px;
-  letter-spacing: 3.20px;
-  word-wrap: break-word
-}
-
+<style scoped>
 .related-product {
   min-height: 259px;
   overflow: hidden;

@@ -281,7 +281,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .body-sold {
   width: 90%;
 }

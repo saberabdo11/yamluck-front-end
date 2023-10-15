@@ -238,7 +238,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .related-product {
   min-height: 259px;
   overflow: hidden;

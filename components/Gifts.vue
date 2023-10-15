@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .GiftsContainer {
   background: #fec63133;
   padding-bottom: 50px;

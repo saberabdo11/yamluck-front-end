@@ -224,7 +224,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .navbar {
   background: grey;
   border-bottom: 1px solid #2d2d2d2d;

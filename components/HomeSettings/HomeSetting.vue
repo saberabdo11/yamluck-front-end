@@ -79,7 +79,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .img-setting {
   height: 18rem;
   object-position: center;
