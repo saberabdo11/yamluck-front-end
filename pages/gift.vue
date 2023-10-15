@@ -2,39 +2,33 @@
   <div>
     <DashboardHeader></DashboardHeader>
 
-    <div class="products py-5 mt-5 position-relative">
+    <div class="products p-4 position-relative">
       <div class="container">
-        <div class="row">
+
+        <!----HEADING---->
+        <div class="text-center mb-4">
+          <span class="smarterway">Gifts May Be<br></span>
+          <span class="anythingtext">Yours</span>
+        </div>
+        <div class="row mt-3">
           <div
-            class="col-12 col-lg-3 text-center"
+            class="col-md-3 col-sm-6 text-center"
             v-for="offer in offers"
-            :key="offer.id"
-          >
+            :key="offer.id">
             <a :href="`/product/${offer.id}`" class="text-white">
-              <div class="product-body p-4" style="border-radius: 15px">
-                <div
-                  class="owner-img text-end mb-2"
-                  v-if="offer.user != NonNullable"
-                >
-                  <img
-                    :src="`${storageURL}/users/${offer.user.pic}`"
-                    class="user-image"
-                    style="width: 60px; height: 60px"
-                  />
-                </div>
-                <div class="image-product px-4">
+              <div class="product-body p-2" style="border-radius: 15px;border-radius: 15px; border: 1px solid #2d2d2d17; box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;">
+
+                <div class="image-product">
                   <img
                     :src="`${storageURL}/products/product_id_${offer.id}/${offer.gift_pic}`"
                     width="200px"
                     height="200px"
                     class="rounded"
-                    style="object-fit: fill; object-position: center"
+                    style="object-fit: scale-down;"
                   />
                 </div>
-                <div class="product-title text-black">
-                  <span>
-                    {{ offer[`gift_${locale}`] }}
-                  </span>
+                <div class="product-title text-secondary mt-3">
+                    <h5 style="color:gray">{{ offer[`gift_${locale}`] }}</h5>
                 </div>
               </div>
             </a>

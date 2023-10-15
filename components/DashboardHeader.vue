@@ -23,7 +23,7 @@
 
         <ul class="col-8 navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
           <li>
-            <NuxtLink class="navItem active" to="/">{{ $t("home") }}</NuxtLink>
+            <NuxtLink class="navItem" to="/">{{ $t("home") }}</NuxtLink>
           </li>
           <li>
             <NuxtLink class="navItem" to="/products">{{ $t("products") }}</NuxtLink>
@@ -163,15 +163,11 @@ export default {
   },
   mounted() {
     if (this.$route.path == "/") {
-      axios
-        .get("https://backend.yamluck.com/api/carousels/0")
+      axios.get("https://backend.yamluck.com/api/carousels/0")
         .then((res) => (this.slides = res.data))
         .catch((err) => console.log(err));
     } else {
-      axios
-        .get(
-          `https://backend.yamluck.com/api/carousels/${this.$route.params.id}`
-        )
+      axios.get(`https://backend.yamluck.com/api/carousels/${this.$route.params.id}`)
         .then((res) => (this.slides = res.data))
         .catch((err) => console.log(err));
     }
@@ -269,8 +265,8 @@ export default {
   font-weight: 900 !important;
 }
 
-.navItem.active {
-  color: #FF7162;
+.nuxt-link-exact-active {
+  color: #FF7162 !important;
   border-bottom: 2px solid #FF7162;
   font-weight: 700 !important;
 }
