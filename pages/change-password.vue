@@ -3,8 +3,8 @@
     <TopHeader/>
     <DashboardHeader/>
 
-    <div class="change-password-page">
-      <div class="container" style="background: #EDF1F5;">
+    <div class="change-password-page" style="background: #EDF1F5;">
+      <div class="container">
 
         <div class="sides">
           <div class="content border-0 d-block col-sm-9 mx-auto">

@@ -10,7 +10,7 @@
             <Menu/>
 
             <form
-              class="form bg-white "
+              class="col-sm-9 mb-5 mx-auto form bg-white rounded"
               enctype="multipart/form-data"
               @submit.prevent="formSubmit">
 

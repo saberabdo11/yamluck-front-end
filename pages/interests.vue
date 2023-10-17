@@ -3,14 +3,14 @@
     <TopHeader/>
     <DashboardHeader/>
 
-    <div class="wallet-page">
-      <div class="container" style="background: #EDF1F5;">
+    <div class="wallet-page" style="background: #EDF1F5;">
+      <div class="container">
         <div class="sides">
           <div class="content border-0 d-block col-sm-9 mx-auto">
             <div class="headingProfile">{{ $t("interests") }}</div>
             <Menu/>
 
-            <div class="interests bg-white rounded">
+            <div class="interests col-sm-9 mx-auto bg-white rounded mb-5">
               <div class="cards">
                 <div
                   class="card col-sm-2 rounded d-flex"
