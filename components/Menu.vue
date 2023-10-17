@@ -1,34 +1,19 @@
 <template>
   <div class="menu">
-    <span style="text-align: center; display: block">
-      {{ $t("menu") }}
-    </span>
-    <ul>
-      <li v-if="this.$route.name == 'profile'" class="active">
+    <ul class="pl-0">
+      <li :class="{'active':this.$route.name == 'profile'}">
         <NuxtLink to="/profile">{{ $t("personal-data") }}</NuxtLink>
       </li>
-      <li v-else>
-        <NuxtLink to="/profile">{{ $t("personal-data") }}</NuxtLink>
-      </li>
-      <li v-if="this.$route.name == 'interests'" class="active">
+
+      <li :class="{'active':this.$route.name == 'interests'}">
         <NuxtLink to="/interests">{{ $t("interests") }}</NuxtLink>
       </li>
-      <li v-else>
-        <NuxtLink to="/interests">{{ $t("interests") }}</NuxtLink>
-      </li>
-      <li
-        v-if="this.$route.name == 'wallet' || this.$route.name == 'recharge'"
-        class="active"
-      >
+
+      <li :class="{'active':this.$route.name == 'wallet'}">
         <NuxtLink to="/wallet">{{ $t("wallet") }}</NuxtLink>
       </li>
-      <li v-else>
-        <NuxtLink to="/wallet">{{ $t("wallet") }}</NuxtLink>
-      </li>
-      <li v-if="this.$route.name == 'change-password'" class="active">
-        <NuxtLink to="/change-password">{{ $t("change-password") }}</NuxtLink>
-      </li>
-      <li v-else>
+
+      <li :class="{'active':this.$route.name == 'change-password'}">
         <NuxtLink to="/change-password">{{ $t("change-password") }}</NuxtLink>
       </li>
     </ul>

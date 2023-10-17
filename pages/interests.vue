@@ -1,23 +1,23 @@
 <template>
   <v-app :class="$i18n.locale">
-    <DashboardHeader></DashboardHeader>
+    <TopHeader/>
+    <DashboardHeader/>
+
     <div class="wallet-page">
-      <div class="container">
+      <div class="container" style="background: #EDF1F5;">
         <div class="sides">
-          <Menu />
-          <div class="content" style="display: block">
-            <div class="heading">
-              <span>{{ $t("interests") }}</span>
-            </div>
-            <div class="interests">
+          <div class="content border-0 d-block col-sm-9 mx-auto">
+            <div class="headingProfile">{{ $t("interests") }}</div>
+            <Menu/>
+
+            <div class="interests bg-white rounded">
               <div class="cards">
                 <div
-                  class="card"
+                  class="card col-sm-2 rounded d-flex"
                   :class="{ active: selected === cat.id }"
                   @click="chooseCat(cat.id)"
                   v-for="cat in categories"
-                  :key="cat.id"
-                >
+                  :key="cat.id">
                   <div style="display: flex; gap: 10px">
                     <div class="icon">
                       <img
@@ -40,11 +40,12 @@
         </div>
       </div>
     </div>
-    <Footer />
+    <Footer/>
   </v-app>
 </template>
 <script>
 import DashboardHeader from "~/components/DashboardHeader.vue";
+import TopHeader from "~/components/TopHeader.vue";
 
 export default {
   middleware: "auth",
@@ -92,9 +93,14 @@ export default {
         .catch((err) => console.log(err));
     },
   },
-  components: { DashboardHeader },
+  components: {DashboardHeader, TopHeader},
 };
 </script>
 <style>
-@import "~/assets/scss/style.css";
+.headingProfile {
+  color: rgba(51, 51, 51, 0.90);
+  font-size: 21px;
+  font-weight: 600;
+  text-align: center;
+}
 </style>

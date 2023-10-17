@@ -134,7 +134,5 @@ export default {
   height: 250px;
 } */
 
-.content {
-  display: none;
-}
+
 </style>

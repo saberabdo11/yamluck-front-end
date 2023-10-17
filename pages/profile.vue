@@ -1,18 +1,21 @@
 <template>
   <v-app :class="$i18n.locale">
+    <TopHeader/>
     <DashboardHeader></DashboardHeader>
-    <div class="profile-page">
+    <div class="profile-page" style="background: #EDF1F5">
       <div class="container">
         <div class="sides">
-          <Menu />
-          <div class="content" style="display: block">
-            <div class="heading">{{ $t("personal-data") }}</div>
+          <div class="content border-0 d-block col-sm-9 mx-auto">
+            <div class="headingProfile">{{ $t("personal-data") }}</div>
+            <Menu/>
+
             <form
-              class="form"
+              class="form bg-white "
               enctype="multipart/form-data"
-              @submit.prevent="formSubmit"
-            >
-              <div style="display: flex; align-items: center">
+              @submit.prevent="formSubmit">
+
+              <!---CHANGE PIC---->
+              <div style="display: flex; justify-content: center">
                 <div class="change-pic">
                   <label for="file-input">
                     <img
@@ -36,36 +39,48 @@
                   />
                 </div>
               </div>
-              <div class="input-group">
-                <label for="full-name">{{ $t("full-name") }}</label>
+
+              <!-----full-name----->
+              <div class="input-group row col-12 p-1 mt-5">
+                <label class="col-sm-3">{{ $t("full-name") }}</label>
                 <input
                   type="text"
+                  class="col-sm-8"
                   name="full_name"
                   id="full-name"
                   v-model="form.full_name"
                 />
               </div>
-              <div class="input-group">
-                <label for="email">{{ $t("email") }}</label>
+
+              <!-----email----->
+              <div class="input-group row col-12 p-1">
+                <label class="col-sm-3">{{ $t("email") }}</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
+                  class="col-sm-8"
                   v-model="form.email"
                 />
               </div>
-              <div class="input-group">
-                <label for="birthdate">{{ $t("birthdate") }}</label>
+
+              <!-----birthdate----->
+              <div class="input-group row col-12 p-1">
+                <label class="col-sm-3">{{ $t("birthdate") }}</label>
                 <input
                   type="date"
                   name="birthdate"
                   id="birthdate"
+                  class="col-sm-8"
                   v-model="form.birthdate"
                 />
               </div>
-              <div class="input-group">
-                <label for="phone">{{ $t("phone") }}</label>
-                <div style="display: flex; gap: 10px; align-items: center">
+
+              <!-----phone----->
+              <div class="input-group row col-12 p-1">
+                <label class="col-sm-3">{{ $t("phone") }}</label>
+                <div class="col-sm-8"
+                     style="display: flex; gap: 10px; align-items: center">
                   <vue-tel-input
                     name="phone"
                     id="phone"
@@ -86,8 +101,8 @@
                   </a>
                 </div>
               </div>
-              <input type="submit" class="save-btn" :value="$t('save')" />
-              <v-alert :type="msg.type" style="margin-top: 4%">
+              <input type="submit" class="save-btn" :value="$t('save')"/>
+              <v-alert v-if="msg.message" :type="msg.type" style="margin-top: 4%">
                 {{ msg.message }}
               </v-alert>
             </form>
@@ -95,12 +110,14 @@
         </div>
       </div>
     </div>
-    <Footer />
+    <Footer/>
   </v-app>
 </template>
 <script>
 import axios from "axios";
 import DashboardHeader from "~/components/DashboardHeader.vue";
+import TopHeader from "~/components/TopHeader.vue";
+
 export default {
   middleware: "auth",
   data() {
@@ -195,14 +212,15 @@ export default {
       }
     },
   },
-  components: { DashboardHeader },
+  components: {DashboardHeader, TopHeader},
 };
 </script>
-<style scroped>
+<style scoped>
 .custom-loader {
   animation: loader 1s infinite;
   display: flex;
 }
+
 @-moz-keyframes loader {
   from {
     transform: rotate(0);
@@ -211,6 +229,7 @@ export default {
     transform: rotate(360deg);
   }
 }
+
 @-webkit-keyframes loader {
   from {
     transform: rotate(0);
@@ -219,6 +238,7 @@ export default {
     transform: rotate(360deg);
   }
 }
+
 @-o-keyframes loader {
   from {
     transform: rotate(0);
@@ -227,6 +247,7 @@ export default {
     transform: rotate(360deg);
   }
 }
+
 @keyframes loader {
   from {
     transform: rotate(0);
@@ -235,7 +256,15 @@ export default {
     transform: rotate(360deg);
   }
 }
+
 .theme--dark.v-btn.v-btn--disabled.v-btn--has-bg {
   background-color: #272727 !important;
+}
+
+.headingProfile {
+  color: rgba(51, 51, 51, 0.90);
+  font-size: 21px;
+  font-weight: 600;
+  text-align: center;
 }
 </style>

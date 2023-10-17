@@ -2,85 +2,110 @@
   .breadcrumb {
     font-size: 15px;
   }
+
   .sides {
     display: flex;
-    margin-top: 5%;
+    margin-top: 2%;
     flex-wrap: wrap;
     gap: 20px;
+
     .menu {
       flex: 0.7;
-      border: 1px solid #e4e4e4;
-      padding: 15px 0px 15px 0px;
-      border-radius: 3px;
+      padding: 15px 0;
       @media screen and (max-width: 768px) {
         width: 100%;
         flex: 1;
         min-width: 250px;
       }
+
       span {
         color: $primary;
         font-weight: 600;
       }
+
       ul {
-        margin-top: 8%;
         display: flex;
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: row;
+        gap: 11px;
+        justify-content: center;
+        flex-wrap: wrap;
+        
         li {
-          padding-right: 3%;
-          color: #707070;
+          color: #FF7162;
+          border: 1px solid #FF7162;
+          padding: 7px 22px;
+          border-radius: 50px;
+          text-align: center;
           a {
             color: inherit;
           }
         }
+
         li.active {
-          border-right: 2px solid $primary;
-          color: black;
+          background: #FF7162;
+          color: white;
           font-weight: 600;
         }
       }
     }
+
     .content {
       flex: 2.5;
       border: 1px solid #e4e4e4;
       border-radius: 3px;
+
       .heading {
         padding: 15px;
         border-bottom: 1px solid #e4e4e4;
         color: $primary;
         font-weight: 600;
       }
+
       .form {
         padding: 20px;
-        max-width: 400px;
         display: flex;
         flex-direction: column;
         gap: 15px;
+
         .input-group {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
           label {
             color: #707070;
             font-weight: 400;
           }
+
           input,
           select {
-            border: 1px solid #707070;
+            background: #F5F8FA;
             padding: 8px;
-            border-radius: 5px;
+            border-radius: 5px !important;
             outline: none;
             transition: 0.4s;
+
             &:focus {
               border: 1px solid $primary;
             }
           }
         }
+
         .save-btn {
-          background: #d1a125;
+          background: #F2AC4B;
+          font-weight: bold;
           padding: 8px 25px;
           color: white;
           border-radius: 5px;
           margin: 3% auto;
           display: block;
           width: 100%;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .save-btn:hover {
+          color: #F2AC4B;
+          border:1px solid #F2AC4B;
+          background: white;
         }
       }
     }

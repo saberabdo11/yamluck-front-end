@@ -1,18 +1,22 @@
 <template>
   <v-app :class="$i18n.locale">
-    <DashboardHeader></DashboardHeader>
+    <TopHeader/>
+    <DashboardHeader/>
+
     <div class="wallet-page">
-      <div class="container">
+      <div class="container" style="background: #EDF1F5;">
         <div class="sides">
-          <Menu />
-          <div class="content" style="display: block">
-            <div class="heading">
+          <div class="content border-0 d-block col-sm-9 mx-auto">
+
+            <div class="headingProfile">
               <span>{{ $t("wallet") }}</span>
-              <NuxtLink to="recharge">
-                <span>{{ $t("recharge") }}</span>
+              <NuxtLink to="recharge" class="ml-4" style="color:gray !important;text-decoration: underline">
+                {{ $t("recharge") }}
               </NuxtLink>
             </div>
-            <div class="balance">
+            <Menu/>
+
+            <div class="balance bg-white rounded">
               <div class="amount">
                 <span style="color: #d1a125">
                   {{ $t("wallet-balance") }} :
@@ -66,38 +70,45 @@
         </div>
       </div>
     </div>
-    <Footer />
+    <Footer/>
   </v-app>
 </template>
 <script>
 import axios from "axios";
 import DashboardHeader from "~/components/DashboardHeader.vue";
+import TopHeader from "~/components/TopHeader.vue";
+
 export default {
-    middleware: "auth",
-    data() {
-        return {
-            token: this.$auth.user.token,
-            amount: "",
-            activities: [],
-        };
-    },
-    mounted() {
-        this.$axios
-            .$post("https://backend.yamluck.com/api/wallet/activities", {
-            Authorization: this.token,
-        })
-            .then((response) => (this.activities = response))
-            .catch((err) => console.log(err));
-        this.$axios
-            .$post("https://backend.yamluck.com/api/wallet/amount", {
-            Authorization: this.token,
-        })
-            .then((response) => (this.amount = response[0].amount))
-            .catch((err) => console.log(err));
-    },
-    components: { DashboardHeader }
+  middleware: "auth",
+  data() {
+    return {
+      token: this.$auth.user.token,
+      amount: "",
+      activities: [],
+    };
+  },
+  mounted() {
+    this.$axios
+      .$post("https://backend.yamluck.com/api/wallet/activities", {
+        Authorization: this.token,
+      })
+      .then((response) => (this.activities = response))
+      .catch((err) => console.log(err));
+    this.$axios
+      .$post("https://backend.yamluck.com/api/wallet/amount", {
+        Authorization: this.token,
+      })
+      .then((response) => (this.amount = response[0].amount))
+      .catch((err) => console.log(err));
+  },
+  components: {DashboardHeader, TopHeader}
 };
 </script>
 <style>
-@import "~/assets/scss/style.css";
+.headingProfile {
+  color: rgba(51, 51, 51, 0.90);
+  font-size: 21px;
+  font-weight: 600;
+  text-align: center;
+}
 </style>
