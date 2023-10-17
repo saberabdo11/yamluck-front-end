@@ -2,7 +2,7 @@
   <v-app :class="$i18n.locale">
     <TopHeader/>
     <DashboardHeader/>
-    <div class="container pb-4" style="background: #F3F6F9">
+    <div class="container pb-4 pt-5" style="background: #F3F6F9">
       <div class="favs">
 
         <div class="page-title">
