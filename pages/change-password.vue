@@ -11,7 +11,7 @@
             <div class="headingProfile">{{ $t("change-password") }}</div>
             <Menu/>
 
-            <form class="form bg-white rounded" @submit.prevent="changePassword">
+            <form class="form bg-white rounded col-sm-9 mx-auto mb-5" @submit.prevent="changePassword">
 
               <!---old-password---->
               <div class="input-group row col-12 p-1 mt-5">

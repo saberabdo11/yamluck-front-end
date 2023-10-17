@@ -16,7 +16,7 @@
             </div>
             <Menu/>
 
-            <div class="balance bg-white rounded">
+            <div class="balance bg-white rounded col-sm-9 mx-auto mb-5">
               <div class="amount">
                 <span style="color: #d1a125">
                   {{ $t("wallet-balance") }} :
