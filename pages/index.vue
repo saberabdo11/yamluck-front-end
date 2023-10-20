@@ -73,7 +73,7 @@ export default {
 }
 @media screen and (max-width: 767px){
   .loaderHam {
-    padding-top: 92% !important;
+    padding-top: 85% !important;
   }
 }
 @keyframes fadeIn {
