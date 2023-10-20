@@ -9,7 +9,7 @@
         <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t("Smartest") }} <br> {{ $t("Buyy") }}</span>
         <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t("Anything") }}</span>
       </div>
-      <div class="row mx-auto mt-5">
+      <div class="row m-5">
 
         <!----START ITEM---->
         <a v-for="(offer, index) in limitedOffers"
@@ -101,8 +101,7 @@
                 </h6>
                 <!--desc-->
                 <p
-                  :class="['mt-2 w-100', { 'text-end': locale == 'ar' }]"
-                  style="min-height: 50px;font-size: 17px; padding:0 24px;color:gray;">
+                  :class="['mt-2 w-100 itemDescripLatest', { 'text-end': locale == 'ar' }]">
                   {{
                     offer[`details_${locale}`].length > 70 ? offer[`details_${locale}`].substr(0, 69) : offer[`details_${locale}`]
                   }}
@@ -243,14 +242,14 @@ export default {
 
 <style scoped>
 .related-product {
-  min-height: 259px;
+  max-height: 216px;
+  min-height: 216px;
   overflow: hidden;
-  max-height: 259px;
 }
 
 .itemTitle {
   color: #2B3C6B;
-  font-size: 26px;
+  font-size: 21px;
   font-weight: 600;
   margin: 12px 23px;
 }
@@ -258,7 +257,7 @@ export default {
 .itemPrice, .itemNumbs {
   color: #F2AC4B;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .rightBarAction {
@@ -297,6 +296,15 @@ export default {
 .pullRight {
   justify-content: right !important;
   padding-right: 21px !important;
+}
+
+.itemDescripLatest {
+  min-height: 50px;
+  font-size: 15px;
+  padding: 0px 24px;
+  color: gray;
+  max-height: 50px;
+  margin-bottom: 0px !important;
 }
 
 @media screen and (max-width: 650px) {
