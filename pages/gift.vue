@@ -4,13 +4,14 @@
     <DashboardHeader></DashboardHeader>
 
     <div class="products p-4 position-relative">
-      <div class="container">
+      <div class="wow animate__fadeInLeftBig container" style="animation-duration: 4s">
 
         <!----HEADING---->
-        <div class="text-center mb-4">
-          <span class="smarterway">Gifts May Be<br></span>
-          <span class="anythingtext">Yours</span>
+        <div class="text-center mb-5">
+          <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{$t("giftsmaybe")}}<br></span>
+          <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{$t("yours")}}</span>
         </div>
+
         <div class="row mt-3">
           <div
             class="col-md-3 col-sm-6 text-center mb-3"

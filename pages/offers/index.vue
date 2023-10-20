@@ -2,11 +2,11 @@
   <div>
     <TopHeader/>
     <DashboardHeader></DashboardHeader>
-    <section class="latest-offers m-md-5 m-sm-3 m-1 ">
+    <section class="wow animate__fadeInLeftBig latest-offers m-md-5 m-sm-3 m-1 " style="animation-duration: 4s">
 
       <div class="text-center mb-5">
-        <span class="smarterway">Best Offers <br></span>
-        <span class="anythingtext">Only Here</span>
+        <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{$t("bestoffers")}}<br></span>
+        <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{$t("onlyhere")}}</span>
       </div>
 
       <div class="container">

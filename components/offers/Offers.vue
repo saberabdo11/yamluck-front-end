@@ -13,7 +13,7 @@
 
       <!----START ITEMS---->
       <div ref="scrollOffer" class="m-md-5 m-sm-3 m-1">
-        <div class="row flex-nowrap">
+        <div class="row">
           <div
             v-for="(offer, index) in offers" :key="offer.id"
             v-if="index < 3"

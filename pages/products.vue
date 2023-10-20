@@ -2,7 +2,7 @@
   <div>
     <TopHeader/>
     <DashboardHeader></DashboardHeader>
-    <section class="products m-md-5 m-sm-3 m-1 position-relative">
+    <section class="wow animate__fadeInLeftBig products m-md-5 m-sm-3 m-1 position-relative" style="animation-duration: 4s">
       <div class="container">
         <!----HEADING---->
         <div class="text-center ">

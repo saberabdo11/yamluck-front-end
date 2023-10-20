@@ -71,7 +71,11 @@ export default {
   animation-name: fadeIn;
   animation-duration: 1.5s;
 }
-
+@media screen and (max-width: 767px){
+  .loaderHam {
+    padding-top: 92% !important;
+  }
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;
