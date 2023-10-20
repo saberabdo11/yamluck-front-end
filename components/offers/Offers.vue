@@ -12,12 +12,12 @@
       </div>
 
       <!----START ITEMS---->
-      <div ref="scrollOffer" class="mt-5">
+      <div ref="scrollOffer" class="m-md-5 m-sm-3 m-1">
         <div class="row flex-nowrap">
           <div
             v-for="(offer, index) in offers" :key="offer.id"
             v-if="index < 3"
-            class="col-md-4 col-sm-6 latest-col mt-5 mb-3">
+            class="col-md-4 col-sm-6 latest-col mt-3 mb-3">
 
             <div class="offer-image text-left pt-5">
               <picture>
@@ -28,7 +28,7 @@
                   :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                 />
                 <img
-                  :style="'width: 177px; height: auto; margin-top: -88px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 189px;' : '']"
+                  :style="'width: 177px; height: auto; margin-top: -66px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 189px;' : '']"
                   :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                   @error="(error) => {error.target.style.display = 'none';}"
                 />
@@ -102,7 +102,7 @@
                   <!--desc-->
                   <p
                     :class="['mt-2 w-100', { 'text-end': locale == 'ar' }]"
-                    style="min-height: 50px;font-size: 17px; padding:0 24px;color:gray;">
+                    style="min-height: 50px; font-size: 15px; padding: 0px 24px; color: gray; margin-top: -5px !important; margin-bottom: 1px;">
                     {{
                       offer[`details_${locale}`].length > 70 ? offer[`details_${locale}`].substr(0, 69) : offer[`details_${locale}`]
                     }}
@@ -116,7 +116,7 @@
 
                   <!--totla items-->
                   <div
-                    :class="['progress-offer mt-2 d-flex ms-2 align-items-center pb-4',{'pullRight': locale == 'ar'}]">
+                    :class="['progress-offer mt-2 d-flex ms-2 align-items-center pb-3',{'pullRight': locale == 'ar'}]">
                     <span class="ms-2 itemNumbs">{{ $t("Total_Nums") }}:</span>
                     <span class="ms-2 itemNumbs">{{ offer.max_subs }}</span>
                   </div>
@@ -284,9 +284,9 @@ export default {
 
 <style scoped>
 .related-product {
-  min-height: 259px;
+  min-height: 216px;
   overflow: hidden;
-  max-height: 259px;
+  max-height: 216px;
 }
 
 .itemTitle {
@@ -299,7 +299,7 @@ export default {
 .itemPrice, .itemNumbs {
   color: #F2AC4B;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .rightBarAction {
@@ -307,7 +307,7 @@ export default {
   flex-direction: column;
   width: 60px;
   position: relative;
-  top: -223px;
+  top: -203px;
   left: 79%;
   gap: 25px;
   z-index: 9999999999;

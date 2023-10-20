@@ -2,19 +2,22 @@
   <div>
     <TopHeader/>
     <DashboardHeader></DashboardHeader>
-    <section class="products mt-5 position-relative">
+    <section class="products m-md-5 m-sm-3 m-1 position-relative">
       <div class="container">
+        <!----HEADING---->
         <div class="text-center ">
-          <span class="smarterway">The Smarter way <br> to buy</span>
-          <span class="anythingtext">Anything</span>
+          <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t("Smartest") }} <br> {{ $t("Buyy") }}</span>
+          <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t("Anything") }}</span>
         </div>
-        <div class="row">
+
+        <div class="row fadeIn">
+
           <!----START ITEMS---->
           <div class="mt-2">
             <div class="row m-sm-3 m-0">
               <div
                 v-for="(offer, index) in offers" :key="offer.id"
-                class="col-md-4 col-sm-6 latest-col m-0 mb-4">
+                class="col-md-4 col-sm-6 latest-col m-0 mb-2">
 
                 <div class="offer-body">
                   <div class="latest-offer-info">
@@ -62,25 +65,29 @@
                     <!--ITEM DETAILS-->
                     <div class="related-product-info" style="width: 100%">
                       <!--title-->
-                      <h6 class="itemTitle">{{ offer[`title_${locale}`] }}</h6>
+                      <h6 :class="['itemTitle', { 'text-right': locale == 'ar' }]">
+                        {{ offer[`title_${locale}`] }}
+                      </h6>
+
                       <!--desc-->
-                      <p
-                        :class="['mt-2 w-100', { 'text-end': locale == 'ar' }]"
-                        style="min-height: 50px;font-size: 17px; padding:0 24px;color:gray;">
+                      <p :class="['mt-2 w-100', { 'text-end': locale == 'ar' }]"
+                         style="min-height: 50px; font-size: 15px; padding: 0px 24px; color: gray; margin-top: -5px !important; margin-bottom: 1px;">
                         {{
                           offer[`details_${locale}`].length > 70 ? offer[`details_${locale}`].substr(0, 69) : offer[`details_${locale}`]
                         }}
                       </p>
+
                       <!--price-->
                       <div
-                        class="progress-offer mt-2 d-flex ms-2 align-items-center">
-                        <span class="ms-2 itemPrice">SAR {{ offer.price }}</span>
+                        :class="['progress-offer d-flex ms-2 align-items-center',{'pullRight': locale == 'ar'}]">
+                        <span class="ms-2 itemPrice">{{ $t("SAR") }}</span>
+                        <span class="ms-2 itemPrice">{{ offer.price }}</span>
                       </div>
 
                       <!--totla items-->
                       <div
-                        class="progress-offer mt-2 d-flex ms-2 align-items-center pb-4">
-                        <span class="ms-2 itemNumbs">Total Nums:</span>
+                        :class="['progress-offer d-flex ms-2 align-items-center pb-3',{'pullRight': locale == 'ar'}]">
+                        <span class="ms-2 itemNumbs">{{ $t("Total_Nums") }}:</span>
                         <span class="ms-2 itemNumbs">{{ offer.max_subs }}</span>
                       </div>
 
@@ -157,7 +164,7 @@ export default {
           user: this.$auth.user.id,
         }
       );
-    }else this.carts = [];
+    } else this.carts = [];
 
   },
   methods: {
@@ -223,9 +230,9 @@ export default {
 
 <style>
 .related-product {
-  min-height: 259px;
+  min-height: 216px;
   overflow: hidden;
-  max-height: 259px;
+  max-height: 216px;
 }
 
 .itemTitle {
@@ -238,7 +245,7 @@ export default {
 .itemPrice, .itemNumbs {
   color: #F2AC4B;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .rightBarAction {
@@ -246,7 +253,7 @@ export default {
   flex-direction: column;
   width: 60px;
   position: relative;
-  top: -223px;
+  top: -203px;
   left: 79%;
   gap: 25px;
   z-index: 9999999999;
@@ -270,4 +277,54 @@ export default {
   height: 1.3em;
 }
 
+.text-right{
+  text-align: right !important;
+}
+.pullRight {
+  justify-content: right !important;
+  padding-right: 21px !important;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 3s !important;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>

@@ -13,8 +13,7 @@
     </div>
 
     <center class="loaderHam" v-show="!isloaded">
-      <img src="../assets/images/newLogo.png">
-      <h2 class="mt-3 font-weight-bold">{{ $t("Loading") }}</h2>
+      <img src="../assets/images/loading.gif" width="100">
     </center>
 
   </section>
@@ -65,9 +64,7 @@ export default {
 .loaderHam {
   height: 100vh;
   position: relative;
-  padding-top: 31%;
-  animation-name: hamzLoader;
-  animation-duration: 5s;
+  padding-top: 29%;
 }
 
 .fadeIn {
@@ -84,39 +81,6 @@ export default {
   }
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes hamzLoader {
-  10% {
-    transform: scale(0.8);
-  }
-  20% {
-    transform: scale(1.1);
-  }
-  30% {
-    transform: scale(0.8);
-  }
-  40% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(0.8);
-  }
-  60% {
-    transform: scale(1.1);
-  }
-  70% {
-    transform: scale(0.8);
-  }
-  80% {
-    transform: scale(1.1);
-  }
-  90% {
-    transform: scale(0.8);
-  }
-  10% {
-    transform: scale(1.1);
   }
 }
 </style>

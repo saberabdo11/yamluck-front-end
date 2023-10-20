@@ -2,17 +2,19 @@
   <div>
     <TopHeader/>
     <DashboardHeader></DashboardHeader>
-    <section class="latest-offers mt-5">
+    <section class="latest-offers m-md-5 m-sm-3 m-1 ">
+
       <div class="text-center mb-5">
         <span class="smarterway">Best Offers <br></span>
         <span class="anythingtext">Only Here</span>
       </div>
+
       <div class="container">
-        <div class="row d-flex justify-content-center">
+        <div class="fadeIn row d-flex justify-content-center">
           <!----START ITEM---->
           <a v-for="(offer, index) in limitedOffers"
              :href="`/product/${offer.id}`"
-             class="col-md-4 col-sm-6 latest-col mt-5 mb-3"
+             class="col-md-4 col-sm-6 latest-col mt-3 mb-2"
              :key="offer.id">
 
             <div class="offer-image text-left pt-5">
@@ -24,7 +26,7 @@
                   :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                 />
                 <img
-                  style="width: 177px; height: auto; margin-top: -88px; position: absolute; z-index: 2;"
+                  style="width: 177px; height: auto; margin-top: -66px; position: absolute; z-index: 2;"
                   :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                   @error="(error) => {error.target.style.display = 'none';}"
                 />
@@ -93,26 +95,32 @@
 
                 <!--ITEM DETAILS-->
                 <div class="related-product-info" style="width: 100%">
+
                   <!--title-->
-                  <h6 class="itemTitle">{{ offer[`title_${locale}`] }}</h6>
+                  <h6 :class="['itemTitle', { 'text-right': locale == 'ar' }]">
+                    {{ offer[`title_${locale}`] }}
+                  </h6>
+
                   <!--desc-->
                   <p
                     :class="['mt-2 w-100', { 'text-end': locale == 'ar' }]"
-                    style="min-height: 50px;font-size: 17px; padding:0 24px;color:gray;">
+                    style="min-height: 50px; font-size: 15px; padding: 0px 24px; color: gray; margin-top: -5px !important; margin-bottom: 1px;">
                     {{
                       offer[`details_${locale}`].length > 70 ? offer[`details_${locale}`].substr(0, 69) : offer[`details_${locale}`]
                     }}
                   </p>
+
                   <!--price-->
                   <div
-                    class="progress-offer mt-2 d-flex ms-2 align-items-center">
-                    <span class="ms-2 itemPrice">SAR {{ offer.price }}</span>
+                    :class="['progress-offer d-flex ms-2 align-items-center',{'pullRight': locale == 'ar'}]">
+                    <span class="ms-2 itemPrice">{{ $t("SAR") }}</span>
+                    <span class="ms-2 itemPrice">{{ offer.price }}</span>
                   </div>
 
                   <!--totla items-->
                   <div
-                    class="progress-offer mt-2 d-flex ms-2 align-items-center pb-4">
-                    <span class="ms-2 itemNumbs">Total Nums:</span>
+                    :class="['progress-offer d-flex ms-2 align-items-center pb-3',{'pullRight': locale == 'ar'}]">
+                    <span class="ms-2 itemNumbs">{{ $t("Total_Nums") }}:</span>
                     <span class="ms-2 itemNumbs">{{ offer.max_subs }}</span>
                   </div>
 
@@ -247,6 +255,43 @@ export default {
 </script>
 
 <style>
+
+.text-right{
+  text-align: right !important;
+}
+.pullRight {
+  justify-content: right !important;
+  padding-right: 21px !important;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 2s !important;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .offers-col {
     max-width: 90%;
