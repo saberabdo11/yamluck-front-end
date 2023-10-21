@@ -4,11 +4,13 @@
     data-aos-easing="ease-in-out-cubic"
     class="latest-offers mt-5">
     <div class="container mt-5">
+
       <!----HEADING---->
-      <div class="text-center ">
+      <div class="text-center mb-4">
         <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t("Smartest") }} <br> {{ $t("Buyy") }}</span>
         <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t("Anything") }}</span>
       </div>
+
       <div class="wow animate__fadeInLeftBig row m-md-5 m-sm-3 m-1" style="animation-duration: 3s">
 
         <!----START ITEM---->
