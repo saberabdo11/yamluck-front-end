@@ -7,8 +7,8 @@
       <div>
         <!----HEADING---->
         <div class="text-center mb-5">
-          <span class="smarterway">{{ $t('roomsthatyou') }} <br> {{ $t('havealready') }}</span>
-          <span class="anythingtext">{{ $t('Join') }}</span>
+          <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t('roomsthatyou') }} <br> {{ $t('havealready') }}</span>
+          <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t('Join') }}</span>
         </div>
 
         <div class="row mx-auto">
@@ -320,6 +320,22 @@ export default {
   justify-content: right !important;
   padding-right: 21px !important;
 }
+.smarterway_ar {
+  color: #2B3C6B;
+  font-size: 39px;
+  font-weight: 600;
+  line-height: 44.61px;
+  word-wrap: break-word
+}
+
+.anythingtext_ar {
+  color: #FF7162;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 44.61px;
+  word-wrap: break-word
+}
+
 
 @media screen and (max-width: 650px) {
   .rightBarAction {

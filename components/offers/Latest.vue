@@ -27,7 +27,7 @@
                 :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
               />
               <img
-                :style="'width: 177px; height: auto; margin-top: -66px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 189px;' : '']"
+                :style="'width: 177px; height: auto; margin-top: -66px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 146px;' : '']"
                 :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                 @error="(error) => {error.target.style.display = 'none';}"
               />

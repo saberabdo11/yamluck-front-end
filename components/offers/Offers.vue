@@ -7,8 +7,8 @@
     <div class="container">
       <!----HEADING---->
       <div class="text-center">
-        <span class="smarterway">{{ $t('bestPlace') }}<br> {{ $t('For') }}</span>
-        <span class="anythingtext">{{ $t('Offers') }}</span>
+        <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t('bestPlace') }}<br> {{ $t('For') }}</span>
+        <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t('Offers') }}</span>
       </div>
 
       <!----START ITEMS---->
@@ -28,7 +28,7 @@
                   :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                 />
                 <img
-                  :style="'width: 177px; height: auto; margin-top: -66px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 189px;' : '']"
+                  :style="'width: 177px; height: auto; margin-top: -66px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 146px;' : '']"
                   :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                   @error="(error) => {error.target.style.display = 'none';}"
                 />
@@ -338,6 +338,22 @@ export default {
   justify-content: right !important;
   padding-right: 21px !important;
 }
+.smarterway_ar {
+  color: #2B3C6B;
+  font-size: 39px;
+  font-weight: 600;
+  line-height: 44.61px;
+  word-wrap: break-word
+}
+
+.anythingtext_ar {
+  color: #FF7162;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 44.61px;
+  word-wrap: break-word
+}
+
 @media screen and (max-width: 650px) {
   .rightBarAction {
     left: 80%;

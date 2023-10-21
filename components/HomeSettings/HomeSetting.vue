@@ -27,13 +27,13 @@
               <div
                 :class="locale == 'en' ? 'textOnSlider' : 'textOnSlider_ar'">
                 <h3>
-                  <span :class="locale == 'en' ? 'phone' : 'phone_ar'">{{$t("Best Choice")}}<br>
+                  <span :class="locale == 'en' ? 'pone' : 'pone_ar'">{{$t("Best Choice")}}<br>
                     <span :class="locale == 'en' ? 'd-block' : 'd-none'">
                       {{$t("Make Your")}} <br>
                     </span>
                     {{$t("Life")}}
                   </span>
-                  <span class="ptwo">{{$t("Special")}}</span>
+                  <span :class="locale == 'en' ? 'ptwo' : 'ptwo_ar'">{{$t("Special")}}</span>
                 </h3>
                 <p class="pthree">{{$t("SOMELOREM")}}</p>
               </div>
@@ -137,7 +137,7 @@ export default {
   letter-spacing: 2px;
 }
 
-.phone_ar {
+.pone_ar {
   color: #FEC631;
   font-size: 42px;
   font-weight: 600;
@@ -151,6 +151,12 @@ export default {
   letter-spacing: 0.96px;
   word-wrap: break-word;
   letter-spacing: 2px;
+}
+.ptwo_ar {
+  color: #FF7162;
+  font-size: 48px;
+  font-weight: 600;
+  word-wrap: break-word;
 }
 
 .pthree {
