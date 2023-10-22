@@ -3,7 +3,7 @@
     <div class="container">
       <!--LOGO-->
       <a class="navbar-brand px-3" href="/">
-        <img src="../assets/images/newLogo.png" width="140px" alt=""/>
+        <img src="../assets/images/newLogo.png" width="68" alt=""/>
       </a>
 
       <!--TOGGLER BTN-->
