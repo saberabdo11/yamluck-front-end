@@ -7,7 +7,7 @@
       <Latest/>
       <Offers/>
       <Gifts/>
-      <Sold/>
+      <Sold />
       <Winners class="d-none"/>
       <Footer/>
     </div>
@@ -24,7 +24,6 @@ import {Swiper, SwiperSlide} from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import "../assets/style.css";
 import HomeSetting from "../components/HomeSettings/HomeSetting";
-
 import Latest from "../components/offers/Latest";
 import Offers from "../components/offers/Offers";
 import Slider from "../components/Slider.vue";
@@ -71,11 +70,13 @@ export default {
   animation-name: fadeIn;
   animation-duration: 1.5s;
 }
-@media screen and (max-width: 767px){
+
+@media screen and (max-width: 767px) {
   .loaderHam {
     padding-top: 85% !important;
   }
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
