@@ -26,7 +26,7 @@
                   :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                 />
                 <img
-                  style="width: 177px; height: auto; margin-top: -66px; position: absolute; z-index: 2;"
+                  style="width: 177px; height: auto; margin-top: -58px; position: absolute; z-index: 2;"
                   :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                   @error="(error) => {error.target.style.display = 'none';}"
                 />
@@ -40,12 +40,12 @@
               </picture>
             </div>
 
-            <div :class="['px-4', { 'text-end': locale == 'ar' }]"
+            <div :class="[{ 'text-end': locale == 'ar' }]"
                  style="z-index: 99999999; position: relative; margin-top: 27px;">
               <a :href="`/product/${offer.id}`" style="background: #FF7162 !important;color: white;"
                  class="btn text-white mt-2">
                 {{ $t("get-it-and-join-draw") }}
-                <img style="position: absolute; width: 61px; top: -14px; right: 152px;"
+                <img style="position: absolute; width: 61px; top: -14px; right: 145px;"
                      src="../../assets/images/newGiftIcon.png"
                      @error="(error) => {error.target.style.display = 'none';}"
                 />

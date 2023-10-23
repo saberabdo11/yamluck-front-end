@@ -29,7 +29,7 @@
                 :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
               />
               <img
-                :style="'width: 177px; height: auto; margin-top: -66px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 146px;' : '']"
+                :style="'width: 177px; height: auto; margin-top: -58px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 146px;' : '']"
                 :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                 @error="(error) => {error.target.style.display = 'none';}"
               />
@@ -43,12 +43,12 @@
             </picture>
           </div>
 
-          <div :class="['px-4', { 'text-end': locale == 'ar' }]"
+          <div :class="[{ 'text-end': locale == 'ar' }]"
                style="z-index: 99999999; position: relative; margin-top: 27px;">
             <a :href="`/product/${offer.id}`" style="background: #FF7162 !important;color: white;"
                class="btn text-white mt-2">
               {{ $t("get-it-and-join-draw") }}
-              <img style="position: absolute; width: 61px; top: -14px; right: 152px;"
+              <img style="position: absolute; width: 61px; top: -14px; right: 145px;"
                    src="../../assets/images/newGiftIcon.png"
                    @error="(error) => {error.target.style.display = 'none';}"
               />
@@ -100,7 +100,9 @@
               <div class="related-product-info" style="width: 100%">
                 <!--title-->
                 <h6 :class="['itemTitle', { 'text-right': locale == 'ar' }]">
-                  {{ offer[`title_${locale}`] }}
+                  {{
+                    offer[`title_${locale}`].length > 24 ? offer[`title_${locale}`].substr(0, 23) : offer[`title_${locale}`]
+                  }}
                 </h6>
                 <!--desc-->
                 <p
@@ -117,12 +119,32 @@
                   <span class="ms-2 itemPrice">{{ offer.price }}</span>
                 </div>
 
+                <div v-if="index == 4 || index == 0" class="alert alert-warning p-1 Joker">
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="10969306_parade_celebration_event_carnival_costume_icon" style="mix-blend-mode:multiply"
+                       clip-path="url(#clip0_163_4576)">
+                      <g id="Solid">
+                        <path id="Vector"
+                              d="M27.3542 22.8454C27.3468 22.6568 27.2872 22.4739 27.182 22.3171C27.0768 22.1603 26.9302 22.0357 26.7585 21.9573C26.3758 21.8546 25.9743 21.8434 25.5864 21.9245C24.8135 22.0812 24.0099 21.9579 23.3196 21.5765C23.5079 20.7615 23.7417 19.9576 24.0199 19.1686C24.6815 17.2169 25.63 15.3747 26.8342 13.7024C26.8493 13.6833 26.8612 13.6618 26.8694 13.6389C27.447 12.0098 23.4167 10.0913 20.9441 9.21452C18.4714 8.33774 14.1328 7.28867 13.5552 8.91772C13.5471 8.94068 13.5428 8.96482 13.5425 8.98918C13.4242 11.0465 13.0003 13.0748 12.2846 15.0073C12.0036 15.7952 11.6788 16.5668 11.3116 17.3184C10.5353 17.1793 9.83373 16.769 9.33184 16.1607C9.08171 15.8534 8.76282 15.6092 8.40092 15.4479C8.21811 15.4006 8.02576 15.4049 7.84528 15.4604C7.6648 15.516 7.50328 15.6205 7.37869 15.7624C6.57932 16.4941 6.007 18.1529 6.45978 19.9071C7.15739 22.6222 9.8864 24.7896 14.8031 26.533C19.7198 28.2764 23.2046 28.3124 25.4564 26.6434C26.9135 25.5661 27.514 23.9173 27.3542 22.8454ZM23.416 12.8803C23.4501 12.8334 23.5013 12.802 23.5585 12.7929C23.6158 12.7838 23.6742 12.7977 23.7212 12.8317C23.7681 12.8656 23.7997 12.9168 23.8089 12.974C23.8181 13.0312 23.8043 13.0897 23.7705 13.1367C23.7479 13.1677 21.5181 16.3088 20.5419 22.2578C20.5325 22.315 20.5007 22.3662 20.4535 22.4C20.4064 22.4339 20.3477 22.4476 20.2905 22.4382C20.2332 22.4287 20.1821 22.397 20.1482 22.3498C20.1144 22.3027 20.1007 22.244 20.1101 22.1868C21.1046 16.1269 23.322 13.01 23.416 12.8803ZM19.8387 11.6773C19.8581 11.6227 19.8984 11.5779 19.9508 11.553C20.0031 11.528 20.0633 11.5249 20.118 11.5443C20.1726 11.5637 20.2174 11.604 20.2423 11.6564C20.2673 11.7087 20.2704 11.7689 20.251 11.8235L16.984 21.0372C16.9646 21.0919 16.9242 21.1366 16.8719 21.1616C16.8195 21.1865 16.7594 21.1897 16.7047 21.1703C16.65 21.1509 16.6053 21.1106 16.5803 21.0582C16.5553 21.0058 16.5522 20.9457 16.5716 20.891L19.8387 11.6773ZM16.5088 10.2738C16.5667 10.277 16.6209 10.3031 16.6595 10.3463C16.6982 10.3894 16.7181 10.4461 16.715 10.504C16.7064 10.6639 16.4648 14.4816 13.4196 19.8142C13.4054 19.8391 13.3864 19.861 13.3636 19.8787C13.3409 19.8963 13.315 19.9092 13.2873 19.9168C13.2596 19.9244 13.2306 19.9264 13.2021 19.9228C13.1736 19.9192 13.1461 19.91 13.1212 19.8958C13.0962 19.8816 13.0743 19.8625 13.0567 19.8398C13.0391 19.8171 13.0261 19.7912 13.0185 19.7635C13.011 19.7358 13.0089 19.7068 13.0125 19.6783C13.0161 19.6498 13.0253 19.6223 13.0395 19.5973C16.0291 14.3623 16.2762 10.5181 16.2782 10.4798C16.2815 10.4219 16.3076 10.3677 16.3509 10.3291C16.3941 10.2904 16.4509 10.2705 16.5088 10.2738ZM25.1962 26.2912C23.0699 27.8675 19.7182 27.8117 14.9493 26.1206C10.1804 24.4296 7.54221 22.3615 6.88372 19.7978C6.4784 18.2275 6.98853 16.7128 7.67421 16.0849C7.88966 15.8877 8.10142 15.8058 8.25481 15.8601C8.55075 16.0019 8.81112 16.2082 9.01673 16.4639C9.55487 17.1055 10.2917 17.5492 11.1106 17.7247C10.6117 18.7089 10.2099 19.3474 10.2029 19.3585C10.183 19.39 10.1714 19.426 10.1692 19.4632C10.1671 19.5004 10.1745 19.5376 10.1908 19.5711C10.2294 19.6508 11.1903 21.5373 15.9732 23.2332C20.756 24.9292 22.6906 24.0694 22.7709 24.0319C22.8047 24.0161 22.8338 23.9919 22.8556 23.9617C22.8774 23.9314 22.8911 23.8961 22.8954 23.8591C22.8969 23.8461 22.9871 23.0972 23.2198 22.0186C23.9663 22.3979 24.818 22.5175 25.6401 22.3584C25.9609 22.2894 26.2931 22.2932 26.6123 22.3696C26.7657 22.424 26.8785 22.6211 26.9216 22.9099C27.0585 23.8294 26.5005 25.3269 25.1962 26.2912Z"
+                              fill="#F8940A"/>
+                      </g>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_163_4576">
+                        <rect width="28" height="28" fill="white" transform="translate(9.35742) rotate(19.524)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  Joker
+                </div>
+
                 <!--totla items-->
                 <div
                   :class="['progress-offer d-flex ms-2 align-items-center pb-3',{'pullRight': locale == 'ar'}]">
                   <span class="ms-2 itemNumbs">{{ $t("Total_Nums") }}:</span>
                   <span class="ms-2 itemNumbs">{{ offer.max_subs }}</span>
                 </div>
+
 
               </div>
             </div>
@@ -184,34 +206,28 @@ export default {
       if (!this.$auth.loggedIn) {
         window.location.href = "/login";
       } else {
-        this.$axios
-          .$post("https://backend.yamluck.com/api/addFav", {
-            user: this.$auth.user.email,
-            product_id: id,
-          })
-          .then((res) => {
-            location.reload();
-          })
-          .catch((err) => {
-            alert("This Offer Added Before");
-          });
+        this.$axios.$post("https://backend.yamluck.com/api/addFav", {
+          user: this.$auth.user.email,
+          product_id: id,
+        }).then((res) => {
+          location.reload();
+        }).catch((err) => {
+          alert("This Offer Added Before");
+        });
       }
     },
     deleteFavs(id) {
       if (!this.$auth.loggedIn) {
         window.location.href = "/login";
       } else {
-        this.$axios
-          .$post("https://backend.yamluck.com/api/deleteFav", {
-            user: this.$auth.user.email,
-            product_id: id,
-          })
-          .then((res) => {
-            location.reload();
-          })
-          .catch((err) => {
-            alert("This Offer Added Before");
-          });
+        this.$axios.$post("https://backend.yamluck.com/api/deleteFav", {
+          user: this.$auth.user.email,
+          product_id: id,
+        }).then((res) => {
+          location.reload();
+        }).catch((err) => {
+          alert("This Offer Added Before");
+        });
       }
     },
     share(id, title) {
@@ -309,6 +325,27 @@ export default {
   color: gray;
   max-height: 50px;
   margin-bottom: 0px !important;
+}
+
+.Joker {
+  width: fit-content;
+  font-weight: 700;
+  padding: 3px 28px !important;
+  background: #F2AC4B4D;
+  color: #F8940A;
+  border:none;
+  font-size: 18px;
+  position: relative;
+  float: right;
+  right: 18px;
+  margin: 0;
+  top: -19px;
+}
+
+.Joker svg {
+  position: absolute;
+  top: -23px;
+  right: -9px;
 }
 
 @media screen and (max-width: 650px) {

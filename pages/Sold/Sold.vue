@@ -7,7 +7,9 @@
       <div>
         <!----HEADING---->
         <div class="text-center mb-5">
-          <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t('roomsthatyou') }} <br> {{ $t('havealready') }}</span>
+          <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{
+              $t('roomsthatyou')
+            }} <br> {{ $t('havealready') }}</span>
           <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t('Join') }}</span>
         </div>
 
@@ -17,6 +19,42 @@
                class="col-md-4 col-sm-6 mb-3">
 
             <!----START ITEM---->
+
+            <div class="offer-image text-left pt-5">
+              <picture>
+                <source
+                  :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
+                />
+                <source
+                  :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
+                />
+                <img
+                  :style="'width: 177px; height: auto; margin-top: -58px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 146px;' : '']"
+                  :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
+                  @error="(error) => {error.target.style.display = 'none';}"
+                />
+                <video
+                  :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
+                  style="width: 177px; height: auto; margin-top: -63px; position: absolute; z-index: 2;"
+                  autoplay loop muted
+                  @error="(error) => {error.target.style.display = 'none';}"
+                  v-if="ios === false"
+                />
+              </picture>
+            </div>
+
+            <div :class="[{ 'text-end': locale == 'ar' }]"
+                 style="z-index: 99999999; position: relative; margin-top: 27px;">
+              <a :href="`/product/${offer.id}`" style="background: #FF7162 !important;color: white;"
+                 class="btn text-white mt-2">
+                {{ $t("get-it-and-join-draw") }}
+                <img style="position: absolute; width: 61px; top: -14px; right: 145px;"
+                     src="../../assets/images/newGiftIcon.png"
+                     @error="(error) => {error.target.style.display = 'none';}"
+                />
+              </a>
+            </div>
+
             <div class="offer-body">
               <div class="latest-offer-info">
                 <div class="related-product">
@@ -59,8 +97,14 @@
 
                 <!--ITEM DETAILS-->
                 <div class="related-product-info" style="width: 100%">
+
                   <!--title-->
-                  <h6 :class="['itemTitle', { 'text-right': locale == 'ar' }]">{{ offer[`title_${locale}`] }}</h6>
+                  <a :href="`/product/${offer.id}`"
+                     :class="['itemTitle', { 'text-right': locale == 'ar' }]">
+                    {{
+                      offer[`title_${locale}`].length > 24 ? offer[`title_${locale}`].substr(0, 23) : offer[`title_${locale}`]
+                    }}
+                  </a>
                   <!--desc-->
                   <p
                     :class="['mt-2 w-100', { 'text-end': locale == 'ar' }]"
@@ -320,6 +364,7 @@ export default {
   justify-content: right !important;
   padding-right: 21px !important;
 }
+
 .smarterway_ar {
   color: #2B3C6B;
   font-size: 39px;

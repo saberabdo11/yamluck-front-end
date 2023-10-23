@@ -2,11 +2,14 @@
   <div>
     <TopHeader/>
     <DashboardHeader></DashboardHeader>
-    <section class="wow animate__fadeInLeftBig products m-md-5 m-sm-3 m-1 position-relative" style="animation-duration: 4s">
+    <section class="wow animate__fadeInLeftBig products m-md-5 m-sm-3 m-1 position-relative"
+             style="animation-duration: 4s">
       <div class="container">
         <!----HEADING---->
         <div class="text-center ">
-          <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t("Smartest") }} <br> {{ $t("Buyy") }}</span>
+          <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t("Smartest") }} <br> {{
+              $t("Buyy")
+            }}</span>
           <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t("Anything") }}</span>
         </div>
 
@@ -15,8 +18,9 @@
           <!----START ITEMS---->
           <div class="mt-2">
             <div class="row m-sm-3 m-0">
-              <div
+              <a
                 v-for="(offer, index) in offers" :key="offer.id"
+                :href="`/product/${offer.id}`"
                 class="col-md-4 col-sm-6 latest-col m-0 mb-2">
 
                 <div class="offer-body">
@@ -66,7 +70,9 @@
                     <div class="related-product-info" style="width: 100%">
                       <!--title-->
                       <h6 :class="['itemTitle', { 'text-right': locale == 'ar' }]">
-                        {{ offer[`title_${locale}`] }}
+                        {{
+                          offer[`title_${locale}`].length > 24 ? offer[`title_${locale}`].substr(0, 23) : offer[`title_${locale}`]
+                        }}
                       </h6>
 
                       <!--desc-->
@@ -95,7 +101,7 @@
                   </div>
                 </div>
 
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -277,9 +283,10 @@ export default {
   height: 1.3em;
 }
 
-.text-right{
+.text-right {
   text-align: right !important;
 }
+
 .pullRight {
   justify-content: right !important;
   padding-right: 21px !important;

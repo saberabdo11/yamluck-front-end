@@ -20,36 +20,28 @@
           <span class="bullet"></span>
           {{ $t('ourGifts') }}
           <span class="bullet" style="position: absolute !important;right: 3px !important;"></span>
-          <span class="bullet" style="position: absolute !important; right: 276px !important; bottom: 218px; background: #87ebff;"></span>
-          <span class="bullet" style="position: absolute !important; left: 225px !important; bottom: 318px; background: #a173f4;"></span>
-          <span class="bullet" style="position: absolute !important; left: 18px !important; bottom: 118px; background: #2bf497b5;"></span>
-          <span class="bullet" style="position: absolute !important; bottom: 18px; right: 561px; background: #fe317d9c;"></span>
+          <span class="bullet"
+                style="position: absolute !important; right: 276px !important; bottom: 218px; background: #87ebff;"></span>
+          <span class="bullet"
+                style="position: absolute !important; left: 225px !important; bottom: 318px; background: #a173f4;"></span>
+          <span class="bullet"
+                style="position: absolute !important; left: 18px !important; bottom: 118px; background: #2bf497b5;"></span>
+          <span class="bullet"
+                style="position: absolute !important; bottom: 18px; right: 561px; background: #fe317d9c;"></span>
         </h3>
+
         <div class="row">
-          <div class="col-md-3 col-sm-6 p-2 pb-5">
+          <a v-for="(offer,index) in offers"
+             :key="offer.id"
+             v-if="index < 4"
+             :href="`/product/${offer.id}`"
+             class="col-md-3 col-sm-6 p-2 pb-5">
             <div class="realBox text-center">
-              <img src="../assets/images/5.png" class="img-fluid">
-              <p class="pImage">Wireless HeadPhones</p>
+              <div v-if="index == 2" class="ranOut alert alert-warning">Ran Out</div>
+              <img :src="`${storageURL}/products/product_id_${offer.id}/${offer.gift_pic}`" class="img-fluid">
+              <p class="pImage">{{ offer[`gift_${locale}`] }}</p>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-6 p-2 pb-5">
-            <div class="realBox text-center">
-              <img src="../assets/images/6.png" class="img-fluid">
-              <p class="pImage">Playstation 4</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 p-2 pb-5">
-            <div class="realBox text-center">
-              <img src="../assets/images/7.png" class="img-fluid">
-              <p class="pImage">Nikon Camera</p>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 p-2 pb-5">
-            <div class="realBox text-center">
-              <img src="../assets/images/8.png" class="img-fluid">
-              <p class="pImage">Gaming Chair</p>
-            </div>
-          </div>
+          </a>
         </div>
       </div>
 
@@ -62,8 +54,17 @@
 
 export default {
   data() {
-    return {};
-  }
+    return {
+      storageURL: process.env.VUE_APP_STORAGE_URL,
+      offers: [],
+      locale: this.$i18n.locale,
+    };
+  },
+  async fetch() {
+    this.offers = await this.$axios.$get(
+      "https://backend.yamluck.com/api/products"
+    );
+  },
 };
 </script>
 
@@ -110,5 +111,17 @@ export default {
   font-weight: 600;
   letter-spacing: 1.10px;
   margin-top: 12px;
+}
+
+.ranOut {
+  background: linear-gradient(#FFBC5F, #FF9400);
+  color: #2B3C6B;
+  font-size: 22px;
+  font-weight: 600;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  transform: rotate(338deg);
+  padding: 3px 29px;
 }
 </style>

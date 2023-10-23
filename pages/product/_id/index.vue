@@ -59,24 +59,53 @@
             <div class="product-info">
               <div class="prodTitle">{{ product[`title_${locale}`] }}</div>
               <div class="prodDesc">{{ product[`details_${locale}`] }}</div>
-              <hr class="m-0" style="border-color: #ffffff87;">
+              <div class="prodPrice orderDesc">
+                {{ $t("orderdescription") }}
+                <span class="text-secondary" style="margin: 0 13px;">
+                  {{ $t("luckycustomers") }}
+                  <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="9035967_people_sharp_icon 1">
+                    <path id="Vector"
+                          d="M5.64062 9.5C7.11626 9.5 8.3125 8.30376 8.3125 6.82812C8.3125 5.35249 7.11626 4.15625 5.64062 4.15625C4.16499 4.15625 2.96875 5.35249 2.96875 6.82812C2.96875 8.30376 4.16499 9.5 5.64062 9.5Z"
+                          fill="#333333" fill-opacity="0.7"/>
+                    <path id="Vector_2"
+                          d="M8.68359 10.9844C7.63859 10.4537 6.48523 10.2422 5.64062 10.2422C3.98629 10.2422 0.59375 11.2568 0.59375 13.2852V14.8438H6.16016V14.2474C6.16016 13.5423 6.45703 12.8354 6.97656 12.2461C7.39107 11.7755 7.97146 11.3388 8.68359 10.9844Z"
+                          fill="#333333" fill-opacity="0.7"/>
+                    <path id="Vector_3"
+                          d="M12.6172 10.6875C  10.6849 10.6875 6.82812 11.8809 6.82812 14.25V16.0312H18.4062V14.25C18.4062 11.8809 14.5495 10.6875 12.6172 10.6875Z"
+                          fill="#333333" fill-opacity="0.7"/>
+                    <path id="Vector_4"
+                          d="M12.6172 9.5C14.4207 9.5 15.8828 8.03793 15.8828 6.23438C15.8828 4.43082 14.4207 2.96875 12.6172 2.96875C10.8136 2.96875 9.35156 4.43082 9.35156 6.23438C9.35156 8.03793 10.8136 9.5 12.6172 9.5Z"
+                          fill="#333333" fill-opacity="0.7"/>
+                    </g>
+                    </svg>
+
+                </span>
+              </div>
+              <div class="prodPrice border-bottom pb-2">
+                {{ product.price }} {{ $t("SAR") }}
+              </div>
               <div class="prodPrice">
-                <span class="text-secondary">Price:</span>
-                {{ product.price }} {{ $t("r.s") }}
+                <span class="text-secondary">{{ $t("productname") }}:</span>
+                {{ product[`title_${locale}`] }}
+              </div>
+              <div class="prodPrice">
+                <span class="text-secondary">{{ $t("Brand") }}:</span>
+                Adiddas
               </div>
               <div class="prodPrice">
                 <span class="text-secondary">Total Items:</span>
                 {{ product.max_subs }}
               </div>
 
-              <div class="row mobileView d-flex" style="width: fit-content;">
+              <div class="row mobileView d-flex mt-4 mx-auto" style="width: fit-content;position: relative">
                 <img src="../../../assets/images/newGiftIcon.png"
-                     :style="'position: absolute; width: 103px;margin-top: -29px;' + [locale == 'ar' ? 'left: 176px;' : 'right: 176px;']">
+                     :style="'position: absolute; width: 103px;margin-top: -29px;' + [locale == 'ar' ? 'left: 0' : 'right: 0']">
                 <div class="col-4">
                   <a href="/product/16" style="height: 110px; display: block;">
-                    <img src="https://backend.yamluck.com/storage/products/product_id_17/1.jpg"
+                    <img :src="`${storageURL}/products/product_id_${product.id}/${product.preview}`"
                          class="img-fluid"
-                         style="width: 100%; height: 100%; object-fit: cover;">
+                         style="width: 100%; height: 100%; object-fit: scale-down;">
                   </a>
                 </div>
 
@@ -101,7 +130,7 @@
                   <v-dialog v-model="dialog" width="500" scrollable>
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn class="subscribe-btn" dark v-bind="attrs" v-on="on"
-                      style="background: #F2AC4B">
+                             style="background: #F2AC4B">
                         {{ $t("subscribe") }}
                       </v-btn>
                     </template>
@@ -532,9 +561,17 @@ table {
 
 .prodPrice {
   color: #FF7162;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   margin-top: -15px;
+}
+
+.orderDesc {
+  padding: 8px;
+  margin-top: 2px;
+  border-top: 1px solid #2d2d2d2d;
+  border-bottom: 1px solid #2d2d2d2d;
+  margin-bottom: 10px;
 }
 
 .mobileView {
