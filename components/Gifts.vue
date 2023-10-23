@@ -37,7 +37,7 @@
              :href="`/product/${offer.id}`"
              class="col-md-3 col-sm-6 p-2 pb-5">
             <div class="realBox text-center">
-              <div v-if="index == 2" class="ranOut alert alert-warning">Ran Out</div>
+              <div v-if="index == 2" class="ranOut alert alert-warning">{{ $t("ranout") }}</div>
               <img :src="`${storageURL}/products/product_id_${offer.id}/${offer.gift_pic}`" class="img-fluid">
               <p class="pImage">{{ offer[`gift_${locale}`] }}</p>
             </div>

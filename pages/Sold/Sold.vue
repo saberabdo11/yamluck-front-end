@@ -21,24 +21,11 @@
             <!----START ITEM---->
 
             <div class="offer-image text-left pt-5">
-              <picture>
-                <source
-                  :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                />
-                <source
-                  :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                />
-                <img
-                  :style="'width: 177px; height: auto; margin-top: -58px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 146px;' : '']"
-                  :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                  @error="(error) => {error.target.style.display = 'none';}"
-                />
-                <video
-                  :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                  style="width: 177px; height: auto; margin-top: -63px; position: absolute; z-index: 2;"
-                  autoplay loop muted
-                  @error="(error) => {error.target.style.display = 'none';}"
-                  v-if="ios === false"
+              <picture
+                :style="'height: 100px; margin-top: -64px; position: absolute; z-index: 2; width: 190px;'+ [locale=='ar' ? 'margin-left: 146px;' : '']">
+                <img style="width: 100%;height:100%;object-fit: scale-down;"
+                     :src="`${storageURL}/products/product_id_${offer.id}/${offer.gift_pic}`"
+                     @error="(error) => {error.target.style.display = 'none';}"
                 />
               </picture>
             </div>
@@ -46,11 +33,12 @@
             <div :class="[{ 'text-end': locale == 'ar' }]"
                  style="z-index: 99999999; position: relative; margin-top: 27px;">
               <a :href="`/product/${offer.id}`" style="background: #FF7162 !important;color: white;"
-                 class="btn text-white mt-2">
+                 class="btn text-white mt-2 position-relative">
                 {{ $t("get-it-and-join-draw") }}
-                <img style="position: absolute; width: 61px; top: -14px; right: 145px;"
-                     src="../../assets/images/newGiftIcon.png"
-                     @error="(error) => {error.target.style.display = 'none';}"
+                <img
+                  :style="'position: absolute; width: 61px; top: -21px;'+[locale == 'en' ? ' right: 0px;':'left:0;']"
+                  src="../../assets/images/newGiftIcon.png"
+                  @error="(error) => {error.target.style.display = 'none';}"
                 />
               </a>
             </div>
@@ -59,7 +47,7 @@
               <div class="latest-offer-info">
                 <div class="related-product">
                   <img
-                    :src="`${storageURL}/products/product_id_${offer.id}/${offer.pic_one}`"
+                    :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                     class="related-product-img"
                   />
 

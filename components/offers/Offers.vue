@@ -21,24 +21,11 @@
             class="col-md-4 col-sm-6 latest-col mt-3 mb-3">
 
             <div class="offer-image text-left pt-5">
-              <picture>
-                <source
-                  :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                />
-                <source
-                  :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                />
-                <img
-                  :style="'width: 177px; height: auto; margin-top: -58px; position: absolute; z-index: 2; '+ [locale=='ar' ? 'margin-left: 146px;' : '']"
-                  :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                  @error="(error) => {error.target.style.display = 'none';}"
-                />
-                <video
-                  :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                  style="width: 177px; height: auto; margin-top: -63px; position: absolute; z-index: 2;"
-                  autoplay loop muted
-                  @error="(error) => {error.target.style.display = 'none';}"
-                  v-if="ios === false"
+              <picture
+                :style="'height: 100px; margin-top: -64px; position: absolute; z-index: 2; width: 190px;'+ [locale=='ar' ? 'margin-left: 146px;' : '']">
+                <img style="width: 100%;height:100%;object-fit: scale-down;"
+                     :src="`${storageURL}/products/product_id_${offer.id}/${offer.gift_pic}`"
+                     @error="(error) => {error.target.style.display = 'none';}"
                 />
               </picture>
             </div>
@@ -46,11 +33,12 @@
             <div :class="[{ 'text-end': locale == 'ar' }]"
                  style="z-index: 99999999; position: relative; margin-top: 27px;">
               <a :href="`/product/${offer.id}`" style="background: #FF7162 !important;color: white;"
-                 class="btn text-white mt-2">
+                 class="btn text-white mt-2 position-relative">
                 {{ $t("get-it-and-join-draw") }}
-                <img style="position: absolute; width: 61px; top: -14px; right: 145px;"
-                     src="../../assets/images/newGiftIcon.png"
-                     @error="(error) => {error.target.style.display = 'none';}"
+                <img
+                  :style="'position: absolute; width: 61px; top: -21px;'+[locale == 'en' ? ' right: 0px;':'left:0;']"
+                  src="../../assets/images/newGiftIcon.png"
+                  @error="(error) => {error.target.style.display = 'none';}"
                 />
               </a>
             </div>
@@ -59,7 +47,7 @@
               <div class="latest-offer-info">
                 <div class="related-product">
                   <img
-                    :src="`${storageURL}/products/product_id_${offer.id}/${offer.pic_one}`"
+                    :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                     class="related-product-img"
                   />
 
@@ -119,7 +107,7 @@
                     <span class="ms-2 itemPrice">{{ offer.price }}</span>
                   </div>
 
-                  <div v-if="index == 1" class="alert alert-warning p-1 Joker">
+                  <div v-if="index == 1" :class="'alert alert-warning p-1 ' + [locale == 'en' ? 'Joker' : 'Joker_ar']">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g id="10969306_parade_celebration_event_carnival_costume_icon" style="mix-blend-mode:multiply"
                          clip-path="url(#clip0_163_4576)">
@@ -135,8 +123,9 @@
                         </clipPath>
                       </defs>
                     </svg>
-                    Joker
+                    {{ $t("Joker") }}
                   </div>
+
 
                   <!--totla items-->
                   <div
@@ -148,11 +137,11 @@
 
                   <div class="row p-1 col-sm-10 mx-auto">
                     <div class="col-6 text-center">
-                      <p class="pSponsor">Sponsor</p>
+                      <p class="pSponsor">{{ $t("Sponsor") }}</p>
                       <p><img src="../../assets/images/adiddas.png" width="70"></p>
                     </div>
                     <div class="col-6 text-center">
-                      <p class="pSponsor">Lucker</p>
+                      <p class="pSponsor">{{ $t("Lucker") }}</p>
                       <div class="d-flex luckerDIV">
                         <img src="../../assets/images/someone.png" width="45">
                         <p class="luckername">John Sim</p>
@@ -413,6 +402,27 @@ export default {
   position: absolute;
   top: -23px;
   right: -9px;
+}
+
+.Joker_ar {
+  width: fit-content;
+  font-weight: 700;
+  padding: 3px 28px !important;
+  background: #F2AC4B4D;
+  color: #F8940A;
+  border: none;
+  font-size: 18px;
+  position: relative;
+  float: left;
+  right: -16px;
+  margin: 0;
+  top: -19px;
+}
+
+.Joker_ar svg {
+  position: absolute;
+  top: -23px;
+  left: -1px;
 }
 
 .pSponsor {

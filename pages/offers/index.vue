@@ -5,8 +5,8 @@
     <section class="wow animate__fadeInLeftBig latest-offers m-md-5 m-sm-3 m-1 " style="animation-duration: 4s">
 
       <div class="text-center mb-5">
-        <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{$t("bestoffers")}}<br></span>
-        <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{$t("onlyhere")}}</span>
+        <span :class="locale == 'en' ? 'smarterway' : 'smarterway_ar'">{{ $t("bestoffers") }}<br></span>
+        <span :class="locale == 'en' ? 'anythingtext' : 'anythingtext_ar'">{{ $t("onlyhere") }}</span>
       </div>
 
       <div class="container">
@@ -18,24 +18,11 @@
              :key="offer.id">
 
             <div class="offer-image text-left pt-5">
-              <picture>
-                <source
-                  :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                />
-                <source
-                  :srcset="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                />
-                <img
-                  style="width: 177px; height: auto; margin-top: -58px; position: absolute; z-index: 2;"
-                  :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                  @error="(error) => {error.target.style.display = 'none';}"
-                />
-                <video
-                  :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
-                  style="width: 177px; height: auto; margin-top: -63px; position: absolute; z-index: 2;"
-                  autoplay loop muted
-                  @error="(error) => {error.target.style.display = 'none';}"
-                  v-if="ios === false"
+              <picture
+                :style="'height: 100px; margin-top: -64px; position: absolute; z-index: 2; width: 190px;'+ [locale=='ar' ? 'margin-left: 146px;' : '']">
+                <img style="width: 100%;height:100%;object-fit: scale-down;"
+                     :src="`${storageURL}/products/product_id_${offer.id}/${offer.gift_pic}`"
+                     @error="(error) => {error.target.style.display = 'none';}"
                 />
               </picture>
             </div>
@@ -56,7 +43,7 @@
               <div class="latest-offer-info">
                 <div class="related-product">
                   <img
-                    :src="`${storageURL}/products/product_id_${offer.id}/${offer.pic_one}`"
+                    :src="`${storageURL}/products/product_id_${offer.id}/${offer.preview}`"
                     class="related-product-img"
                   />
 
@@ -98,7 +85,9 @@
 
                   <!--title-->
                   <h6 :class="['itemTitle', { 'text-right': locale == 'ar' }]">
-                    {{ offer[`title_${locale}`] }}
+                    {{
+                      offer[`title_${locale}`].length > 24 ? offer[`title_${locale}`].substr(0, 23) : offer[`title_${locale}`]
+                    }}
                   </h6>
 
                   <!--desc-->
@@ -133,7 +122,7 @@
         </div>
       </div>
     </section>
-    <Footer />
+    <Footer/>
   </div>
 </template>
 
@@ -250,15 +239,16 @@ export default {
         .catch(console.error);
     },
   },
-  components: { DashboardHeader, Footer },
+  components: {DashboardHeader, Footer},
 };
 </script>
 
 <style>
 
-.text-right{
+.text-right {
   text-align: right !important;
 }
+
 .pullRight {
   justify-content: right !important;
   padding-right: 21px !important;
