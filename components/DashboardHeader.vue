@@ -23,19 +23,19 @@
 
         <ul class="col-8 navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
           <li>
-            <NuxtLink class="navItem" to="/">{{ $t("home") }}</NuxtLink>
+            <NuxtLink :class="[locale == 'en' ? 'navItem': 'navItem_ar']" to="/">{{ $t("home") }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="navItem" to="/products">{{ $t("products") }}</NuxtLink>
+            <NuxtLink :class="[locale == 'en' ? 'navItem': 'navItem_ar']" to="/products">{{ $t("products") }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="navItem" to="/offers">{{ $t("offers") }}</NuxtLink>
+            <NuxtLink :class="[locale == 'en' ? 'navItem': 'navItem_ar']" to="/offers">{{ $t("offers") }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="navItem" to="/gift">{{ $t("gifts") }}</NuxtLink>
+            <NuxtLink :class="[locale == 'en' ? 'navItem': 'navItem_ar']" to="/gift">{{ $t("gifts") }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="navItem" to="/gift">{{ $t("rooms") }}</NuxtLink>
+            <NuxtLink :class="[locale == 'en' ? 'navItem': 'navItem_ar']" to="/gift">{{ $t("rooms") }}</NuxtLink>
           </li>
         </ul>
 
@@ -260,6 +260,22 @@ export default {
 }
 
 .navItem:hover {
+  color: #FF7162 !important;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid #FF7162;
+  font-weight: 900 !important;
+}
+
+
+.navItem_ar {
+  color: #2B3C6B !important;
+  font-size: 17px;
+  font-weight: 600 !important;
+  overflow: hidden;
+  padding: 6px 20px;
+}
+
+.navItem_ar:hover {
   color: #FF7162 !important;
   transition: all 0.3s ease-in-out;
   border-bottom: 2px solid #FF7162;

@@ -39,12 +39,8 @@
             <div class="row bg-white mx-auto">
 
               <div class="col-sm-4">
-                <h3 class="footerHeading">About Us</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet animi assumenda corporis,
-                  dolore, ducimus esse et facere id ipsam magnam molestias nisi obcaecati rem sit ut veniam veritatis
-                  voluptatibus!
-                </p>
+                <h3 class="footerHeading">{{ $t('aboutus') }}</h3>
+                <p>{{ $t('lorem') }}</p>
               </div>
 
               <div class="col-sm-4">
@@ -62,8 +58,8 @@
               </div>
 
               <div class="col-sm-4">
-                <h3 class="footerHeading">Our Contacts</h3>
-                <p class="footerText">AL-Reyad Saudi Arabia</p>
+                <h3 class="footerHeading">{{$t('ourcontacts')}}</h3>
+                <p class="footerText">{{$t('alryadh')}}</p>
                 <p class="footerText">Yamluck@example.com</p>
                 <p class="footerText">+966 123 123 123</p>
               </div>

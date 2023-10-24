@@ -8,35 +8,33 @@
         <div class="m-3 product row p-0 w-100">
 
           <!----LEFT SECTION---->
-          <div class="col-md-6 row justify-content-between">
-            <div class="col-3 p-1 pt-3 row flex-column justify-content-space-between">
-              <span class="littleImgSpan" v-if="product.pic_two !== null">
+          <div class="col-md-7 row leftSectionImgs">
+
+            <div class="row p-0">
+              <div class="col-sm-3 rowOfLittleImgs">
+              <span class="littleImgSpan" v-if="product.pic_one !== null">
+                <img :src="`${storageURL}/products/product_id_${param}/${product.pic_one}`"/>
+              </span>
+                <span class="littleImgSpan" v-if="product.pic_two !== null">
                 <img :src="`${storageURL}/products/product_id_${param}/${product.pic_two}`"/>
               </span>
-              <span class="littleImgSpan" v-if="product.pic_three !== null">
+                <span class="littleImgSpan" v-if="product.pic_three !== null">
                 <img :src="`${storageURL}/products/product_id_${param}/${product.pic_three}`"/>
               </span>
-              <span class="littleImgSpan" v-if="product.pic_four !== null">
-                <img :src="`${storageURL}/products/product_id_${param}/${product.pic_four}`"/>
-              </span>
-              <span class="littleImgSpan" v-if="product.pic_five !== null">
-                <img :src="`${storageURL}/products/product_id_${param}/${product.pic_five}`"/>
-              </span>
-              <span class="littleImgSpan" v-if="product.pic_six !== null">
-                <img :src="`${storageURL}/products/product_id_${param}/${product.pic_six}`"/>
-              </span>
-            </div>
-            <div class="col-9 pt-0">
-              <div class="bigImgView">
-                <img class="img-fluid" :src="`${storageURL}/products/product_id_${param}/${product.pic_one}`"/>
+              </div>
+
+              <div class="col-sm-9 p-0 parentOfBigImgView">
+                <div class="bigImgView">
+                  <img class="img-fluid" :src="`${storageURL}/products/product_id_${param}/${product.preview}`"/>
+                </div>
               </div>
             </div>
 
             <div class="col-12 p-1 similarProducts" v-if="this.similarProducts.length > 0">
-              <h3>Another Gifts Also May Be Yours</h3>
-              <div class="row cards">
+              <h3>{{ $t("anothergiftsmaybe") }}</h3>
+              <div class="row cards justify-content-center">
                 <div
-                  class="col-3"
+                  class="col-sm-3"
                   v-for="similarProduct in similarProducts"
                   :key="similarProduct.id">
                   <NuxtLink :to="`/product/${similarProduct.id}`">
@@ -55,7 +53,7 @@
           </div>
 
           <!----RIGHT SECTION--->
-          <div class="col-md-6">
+          <div class="col-md-5 pt-0">
             <div class="product-info">
               <div class="prodTitle">{{ product[`title_${locale}`] }}</div>
               <div class="prodDesc">{{ product[`details_${locale}`] }}</div>
@@ -94,29 +92,46 @@
                 Adiddas
               </div>
               <div class="prodPrice">
-                <span class="text-secondary">Total Items:</span>
+                <span class="text-secondary">{{ $t("totalitems") }}:</span>
                 {{ product.max_subs }}
               </div>
+              <div class="prodPrice">
+                <span class="text-secondary">{{$t('availableitems')}}:</span>
+                65
+              </div>
 
-              <div class="row mobileView d-flex mt-4 mx-auto" style="width: fit-content;position: relative">
+              <div class="row mobileView col-sm-10 d-flex mt-4 mx-auto" style="position: relative">
                 <img src="../../../assets/images/newGiftIcon.png"
                      :style="'position: absolute; width: 103px;margin-top: -29px;' + [locale == 'ar' ? 'left: 0' : 'right: 0']">
-                <div class="col-4">
+                <div class="col-4 p-1">
                   <a href="/product/16" style="height: 110px; display: block;">
-                    <img :src="`${storageURL}/products/product_id_${product.id}/${product.preview}`"
+                    <img :src="`${storageURL}/products/product_id_${product.id}/${product.gift_pic}`"
                          class="img-fluid"
                          style="width: 100%; height: 100%; object-fit: scale-down;">
                   </a>
                 </div>
 
                 <div class="col-8">
-                  <h3 class="giftHeading">2023 Volvo XC40</h3>
-                  <h4 class="giftText">Recharge pure Electric </h4>
-                  <button class="btn btn-warning rounded border-warning px-5 text-white font-weight-bold"
-                          style="background: #F2AC4B">
-                    Gift you may win
+                  <h3 class="giftHeading">2023 {{ product[`gift_${locale}`] }}</h3>
+                  <button class="btn btn-warning rounded px-5 text-white font-weight-bold"
+                          style="background: #F2AC4B;border:0;bottom: 13px; position: absolute;">
+                    {{ $t('giftyoumaywin') }}
                   </button>
                 </div>
+
+              </div>
+
+              <div class="row mobileView col-sm-10 d-flex mt-4 mx-auto" style="padding: 10px !important;">
+                <h4 style="color: #808080; font-size: 19px; text-align: center; font-weight: bold;">{{$t('Quantity')}}</h4>
+                <div class="d-flex justify-content-center mt-3 mb-3">
+                  <button class="sqBtn">+</button>
+                  <span class="sqCenBtn">1</span>
+                  <button class="sqBtn">-</button>
+                </div>
+                <button class="btn btn-warning rounded px-5 text-white font-weight-bold mx-auto"
+                        style="background: #F2AC4B;border:0;width: fit-content">
+                  {{ $t('addToCart') }}
+                </button>
               </div>
 
 
@@ -365,6 +380,8 @@ export default {
     this.product = await this.$axios.$get(
       `https://backend.yamluck.com/api/product/${this.param}`
     );
+    console.log('***************************')
+    console.log(this.product)
     this.similarProducts = await this.$axios.$get(
       `https://backend.yamluck.com/api/similar-product/${this.param}`
     );
@@ -473,20 +490,20 @@ table {
 }
 
 .littleImgSpan {
-  border: 1px solid #2d2d2d1f;
+  border: 1px solid rgba(45, 45, 45, 0.12157);
   text-align: center;
   padding: 25px 0;
-  max-height: 108px;
+  max-height: 119px;
   border-radius: 9px;
   box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
   margin-bottom: 15px;
-  min-height: 139px;
+  min-height: 119px;
 }
 
 .littleImgSpan img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 .bigImgView {
@@ -524,15 +541,16 @@ table {
   border: none;
 }
 
-.similarProd .image {
-  min-height: 153px;
-  max-height: 153px;
+.similarProd .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
 }
 
 .similarProd .image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 .simtitle {
@@ -606,6 +624,86 @@ table {
   font-family: Montserrat;
   font-weight: 400;
   line-height: 27.88px;
+}
+
+.parentOfBigImgView {
+  max-height: 389px;
+}
+
+.rowOfLittleImgs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 0;
+}
+
+.leftSectionImgs {
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .rowOfLittleImgs {
+    margin: auto;
+    padding: 20px 0 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .littleImgSpan {
+    border: 1px solid rgba(45, 45, 45, 0.12157);
+    text-align: center;
+    padding: 18px 0;
+    max-height: 122px;
+    border-radius: 9px;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    min-height: 119px;
+    margin: 4px;
+    width: 30%;
+  }
+
+  .leftSectionImgs {
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: auto !important;
+  }
+
+  .prodPrice {
+    color: #FF7162;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: -15px;
+  }
+  .product-page .product {
+    margin: auto !important;
+  }
+
+  .mobileView {
+    padding: 0 !important;
+  }
+  .sqBtn {
+    width: 40px;
+    height: 40px;
+    background: #e7e7e77d;
+    border: 1px solid rgba(231, 231, 231, 0.47);
+    border-radius: 6px;
+    font-size: 26px;
+    color: #FF7162;
+    font-weight: bold;
+    text-align: center;
+  }
+  .sqCenBtn {
+    width: 40px;
+    height: 40px;
+    background: #e7e7e700;
+    border-radius: 6px;
+    font-size: 26px;
+    color: #FF7162;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid;
+    margin: 0 15px;
+  }
 }
 
 </style>
