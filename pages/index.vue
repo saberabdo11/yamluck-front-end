@@ -168,7 +168,7 @@ export default {
 
   .popup-inner {
     padding: 34px 6px 20px 6px;
-    transform: translateY(15vh);
+    transform: translateY(12vh);
     background: linear-gradient(#000000EB, white, wheat);
     border-radius: 15px;
     border: 1px solid #2d2d2d;
